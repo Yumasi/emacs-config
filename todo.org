@@ -1,0 +1,18 @@
+#+TITLE: Todo
+
+* Base Emacs config
+** DONE Reset the gc threshold
+CLOSED: [2021-10-22 ven. 11:25]
+
+* Core stuff
+** DONE Setup straight
+CLOSED: [2021-10-22 ven. 11:25]
+* Langs
+** PROJ C/C++
+** PROJ Rust
+* Packages
+** TODO Use-package
+** TODO Evil mode
+** TODO Projectile
+** TODO Magit
+** PROJ Org
