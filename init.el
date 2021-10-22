@@ -1,4 +1,8 @@
-;;; init.el -*- lexical-binding: t; -*-
+;;; init.el --- Emacs init -*- lexical-binding: t; -*-
+
+(setf inhibit-startup-message t
+      initial-major-mode 'fundamental-mode
+      initial-scratch-message nil)
 
 ;; Bootstrap straight.el
 (defvar bootstrap-version)
@@ -19,3 +23,5 @@
 
 ;; Reset the gc threshold to some reasonable value
 (setf gc-cons-threshold (* 16 1024 1024)) ;; 16 MB
+
+;;; init.el ends here
