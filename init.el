@@ -37,4 +37,11 @@
 ;; Reset the gc threshold to some reasonable value
 (setf gc-cons-threshold (* 16 1024 1024)) ;; 16 MB
 
+;;; Packages
+
+(use-package evil
+  :straight t
+  :init (evil-mode 1))
+
+
 ;;; init.el ends here
