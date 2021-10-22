@@ -1,5 +1,8 @@
 ;;; init.el --- Emacs init -*- lexical-binding: t; -*-
 
+;; Make UTF-8 the default coding system
+(set-language-environment "UTF-8")
+
 (setf inhibit-startup-message t
       initial-major-mode 'fundamental-mode
       initial-scratch-message nil)
