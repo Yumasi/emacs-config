@@ -2,17 +2,24 @@
 
 * Base Emacs config
 ** DONE Reset the gc threshold
-CLOSED: [2021-10-22 ven. 11:25]
+CLOSED: [2021-10-22 ven. 11:25  ]
+** DONE Backup files in one directory
+CLOSED: [2021-10-25 lun. 10:45]
+** TODO Save the .emacs directory in a variable
 
 * Core stuff
-** DONE Setup straight
-CLOSED: [2021-10-22 ven. 11:25]
+** Setup straight [1/2]
+*** DONE Straight installation
+CLOSED: [2021-10-25 lun. 10:48]
+*** TODO Setup package pining
+** PROJ Setup LSP
 * Langs
 ** PROJ C/C++
 ** PROJ Rust
 * Packages
 ** TODO Use-package
-** TODO Evil mode
+** DONE Evil mode
+CLOSED: [2021-10-25 lun. 10:39]
 ** TODO Projectile
 ** TODO Magit
 ** PROJ Org

@@ -23,6 +23,9 @@
 
 (straight-use-package 'use-package)
 
+;;; Basic config
+(setf backup-directory-alist `(("." . "~/.emacs.personal/.file-backups")))
+
 ;;; UI
 
 ;; Disable useless UI elements
