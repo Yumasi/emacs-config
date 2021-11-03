@@ -62,6 +62,10 @@
 ;; Evil
 (use-package evil
   :init (evil-mode 1))
+;; Doom Modeline
+(use-package doom-modeline
+  :init (doom-modeline-mode 1))
+
 
 ;; Org
 (setf org-todo-keywords '((sequence "PROJ" "TODO" "STRT" "|" "DONE")) ; Extra todo keywords
