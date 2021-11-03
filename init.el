@@ -72,6 +72,8 @@
 (use-package doom-modeline
   :init (doom-modeline-mode 1))
 
+;; Magit
+(use-package magit)
 
 ;; Org
 (setf org-todo-keywords '((sequence "PROJ" "TODO" "STRT" "|" "DONE")) ; Extra todo keywords
