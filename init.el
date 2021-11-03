@@ -19,6 +19,8 @@
   (load bootstrap-file nil 'nomessage))
 
 (straight-use-package 'use-package)
+(setf straight-use-package-by-default t)
+
 
 ;;; Basic config
 (setf backup-directory-alist `(("." . "~/.emacs.personal/.file-backups")))
@@ -43,8 +45,8 @@
 
 ;;; Packages
 
+;; Evil
 (use-package evil
-  :straight t
   :init (evil-mode 1))
 
 
