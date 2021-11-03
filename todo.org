@@ -13,16 +13,27 @@ CLOSED: [2021-10-25 lun. 10:45]
 CLOSED: [2021-10-25 lun. 10:48]
 *** TODO Setup package pining
 ** PROJ Setup LSP
+** Utils
+*** add-hook!
+**** TODO support multiple arguments
 * Langs
 ** PROJ C/C++
 ** PROJ Rust
 * UI
 ** DONE Fonts
 CLOSED: [2021-11-03 mer. 10:51]
+** TODO Doom modebar
 * Packages
-** TODO Use-package
+** DONE Use-package
+CLOSED: [2021-11-03 mer. 10:51]
 ** DONE Evil mode
 CLOSED: [2021-10-25 lun. 10:39]
-** TODO Projectile
-** TODO Magit
+** PROJ Swiper
+** PROJ Projectile
+** PROJ Magit
 ** PROJ Org
+** PROJ General
+- Escape as C-g
+** PROJ EXWM
+* Misc
+** TODO Document how to use chemacs2 with this config
