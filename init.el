@@ -46,7 +46,10 @@
 (setf visible-bell t) ; Scream at me quietly
 
 ;; Fonts
-(set-face-attribute 'default nil :font "Iosevka" :height 180)
+(set-face-attribute 'default nil :font "Iosevka" :height 160)
+(custom-set-faces
+  '(mode-line ((t (:family "Iosevka" :height 0.9))))
+  '(mode-line-inactive ((t (:family "Iosevka" :height 0.9)))))
 
 ;; Theme
 (load-theme 'wombat)
