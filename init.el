@@ -33,9 +33,14 @@
 (push '(tool-bar-lines . 0) default-frame-alist)
 (push '(vertical-scroll-bars) default-frame-alist)
 
-(setq menu-bar-mode nil
-      tool-bar-mode nil
-      scroll-bar-mode nil)
+;; Also clear the variables
+(setf menu-bar-mode nil ; Disable menubar
+      tool-bar-mode nil ; Disable toolbar
+      scroll-bar-mode nil ; Disable scrollbar
+      tooltip-mode nil ; Disable tooltips
+      set-fringe-mode 10) ; Give us some margins
+
+(setf visible-bell t) ; Scream at me quietly
 
 ;; Fonts
 (set-face-attribute 'default nil :font "Iosevka" :height 180)
