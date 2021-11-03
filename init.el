@@ -48,6 +48,9 @@
 ;; Fonts
 (set-face-attribute 'default nil :font "Iosevka" :height 180)
 
+;; Theme
+(load-theme 'wombat)
+
 ;; Line numbers
 (add-hook! prog-mode-hook display-line-numbers-mode)
 
