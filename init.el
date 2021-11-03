@@ -21,6 +21,9 @@
 (straight-use-package 'use-package)
 (setf straight-use-package-by-default t)
 
+;;; Utils
+(defmacro add-hook! (hook f)
+  `(add-hook ',hook ',f))
 
 ;;; Basic config
 (setf backup-directory-alist `(("." . "~/.emacs.personal/.file-backups")))
@@ -44,6 +47,9 @@
 
 ;; Fonts
 (set-face-attribute 'default nil :font "Iosevka" :height 180)
+
+;; Line numbers
+(add-hook! prog-mode-hook display-line-numbers-mode)
 
 ;; Reset the gc threshold to some reasonable value
 (setf gc-cons-threshold (* 16 1024 1024)) ;; 16 MB
