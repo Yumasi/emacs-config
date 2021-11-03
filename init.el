@@ -61,7 +61,13 @@
 
 ;; Evil
 (use-package evil
-  :init (evil-mode 1))
+  :init
+  (setf evil-want-keybinding nil)
+  :config (evil-mode 1))
+(use-package evil-collection
+  :after evil
+  :config (evil-collection-init))
+
 ;; Doom Modeline
 (use-package doom-modeline
   :init (doom-modeline-mode 1))
