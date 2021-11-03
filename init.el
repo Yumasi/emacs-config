@@ -49,5 +49,8 @@
 (use-package evil
   :init (evil-mode 1))
 
+;; Org
+(setf org-todo-keywords '((sequence "PROJ" "TODO" "STRT" "|" "DONE")) ; Extra todo keywords
+      org-log-done 'time) ; Log time when marking a todo as done
 
 ;;; init.el ends here
