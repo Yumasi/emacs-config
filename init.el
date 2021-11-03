@@ -35,6 +35,9 @@
       tool-bar-mode nil
       scroll-bar-mode nil)
 
+;; Fonts
+(set-face-attribute 'default nil :font "Iosevka" :height 180)
+
 ;; Reset the gc threshold to some reasonable value
 (setf gc-cons-threshold (* 16 1024 1024)) ;; 16 MB
 

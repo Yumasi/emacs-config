@@ -16,6 +16,9 @@ CLOSED: [2021-10-25 lun. 10:48]
 * Langs
 ** PROJ C/C++
 ** PROJ Rust
+* UI
+** DONE Fonts
+CLOSED: [2021-11-03 mer. 10:51]
 * Packages
 ** TODO Use-package
 ** DONE Evil mode
