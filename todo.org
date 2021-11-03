@@ -22,7 +22,8 @@ CLOSED: [2021-10-25 lun. 10:48]
 * UI
 ** DONE Fonts
 CLOSED: [2021-11-03 mer. 10:51]
-** TODO Doom modebar
+** DONE Doom modebar
+CLOSED: [2021-11-03 mer. 11:12]
 * Packages
 ** DONE Use-package
 CLOSED: [2021-11-03 mer. 10:51]
@@ -30,7 +31,7 @@ CLOSED: [2021-11-03 mer. 10:51]
 CLOSED: [2021-10-25 lun. 10:39]
 ** PROJ Swiper
 ** PROJ Projectile
-** PROJ Magit
+** STRT Magit
 ** PROJ Org
 ** PROJ General
 - Escape as C-g
