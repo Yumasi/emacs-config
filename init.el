@@ -79,4 +79,10 @@
 (setf org-todo-keywords '((sequence "PROJ" "TODO" "STRT" "|" "DONE")) ; Extra todo keywords
       org-log-done 'time) ; Log time when marking a todo as done
 
+;;; Languages support
+
+;; Meson
+
+(use-package meson-mode)
+
 ;;; init.el ends here
