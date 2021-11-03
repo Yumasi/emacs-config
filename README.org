@@ -1,2 +1,14 @@
 #+TITLE: README
 
+* How to install
+
+Simply clone this repository in =~/.emacs.d= or =~/.config/emacs=. You can also
+use =chemacs= if you wish to have multiple Emacs installation on hand.
+
+* Features
+
+- Speed. I like my Emacs to be *fast*.
+- Package management with =straight=.
+- =Evil-mode= for us vimmers.
+
+See the [[todo.org]] file for planned features.
