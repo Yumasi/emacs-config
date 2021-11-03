@@ -1,12 +1,9 @@
 ;;; init.el --- Emacs init -*- lexical-binding: t; -*-
 
-;; Make UTF-8 the default coding system
-(set-language-environment "UTF-8")
-
+;; Make UTF-8 the default coding system (set-language-environment "UTF-8") ;; Minimal startup
 (setf inhibit-startup-message t
       initial-major-mode 'fundamental-mode
       initial-scratch-message nil)
-
 ;; Bootstrap straight.el
 (defvar bootstrap-version)
 (let ((bootstrap-file
@@ -25,6 +22,7 @@
 
 ;;; Basic config
 (setf backup-directory-alist `(("." . "~/.emacs.personal/.file-backups")))
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
 ;;; UI
 
