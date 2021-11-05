@@ -76,7 +76,15 @@
 
 ;; Doom Modeline
 (use-package doom-modeline
-  :init (doom-modeline-mode 1))
+  :init (doom-modeline-mode 1)
+  :config
+  (display-battery-mode t)
+  ;; Display the time
+  (display-time-mode 1)
+  (setf display-time-format "%a %d %b %R")
+
+
+  (setf doom-modeline-buffer-encoding nil))
 
 ;; Magit
 (use-package magit)
