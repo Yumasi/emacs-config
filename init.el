@@ -52,13 +52,16 @@
   '(mode-line-inactive ((t (:family "Iosevka" :height 0.9)))))
 
 ;; Theme
-(load-theme 'wombat)
+(use-package doom-themes
+  :config
+  (setf doom-themes-enable-bold t
+	doom-themes-enable-italic t)
+  (load-theme 'doom-monokai-pro t)
+  (doom-themes-visual-bell-config)
+  (doom-themes-org-config))
 
 ;; Line numbers
 (add-hook! prog-mode-hook display-line-numbers-mode)
-
-;; Reset the gc threshold to some reasonable value
-(setf gc-cons-threshold (* 16 1024 1024)) ;; 16 MB
 
 ;;; Packages
 
@@ -87,5 +90,8 @@
 ;; Meson
 
 (use-package meson-mode)
+
+;; Reset the gc threshold to some reasonable value
+(setf gc-cons-threshold (* 16 1024 1024)) ;; 16 MB
 
 ;;; init.el ends here

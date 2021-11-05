@@ -6,5 +6,7 @@
 ;; reset later.
 (setf gc-cons-threshold most-positive-fixnum)
 
+(setf load-prefer-newer noninteractive)
+
 ;; Needed for straight.el
 (setf package-enable-at-startup nil)
