@@ -6,7 +6,6 @@ CLOSED: [2021-10-22 ven. 11:25  ]
 ** DONE Backup files in one directory
 CLOSED: [2021-10-25 lun. 10:45]
 ** TODO Save the .emacs directory in a variable
-
 * Core stuff
 ** Setup straight [1/2]
 *** DONE Straight installation

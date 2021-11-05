@@ -4,6 +4,7 @@
 (setf inhibit-startup-message t
       initial-major-mode 'fundamental-mode
       initial-scratch-message nil)
+
 ;; Bootstrap straight.el
 (defvar bootstrap-version)
 (let ((bootstrap-file
@@ -23,6 +24,7 @@
 
 ;;; Utils
 (defmacro add-hook! (hook f)
+  "Add F to HOOK"
   `(add-hook ',hook ',f))
 
 ;;; Basic config
@@ -48,8 +50,56 @@
 ;; Fonts
 (set-face-attribute 'default nil :font "Iosevka" :height 160)
 (custom-set-faces
-  '(mode-line ((t (:family "Iosevka" :height 0.9))))
-  '(mode-line-inactive ((t (:family "Iosevka" :height 0.9)))))
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(mode-line ((t (:family "Iosevka" :height 0.8))))
+ '(mode-line-inactive ((t (:family "Iosevka" :height 0.8)))))
+
+;; EXWM
+(defun user/exwm-update-class ()
+  (exwm-workspace-rename-buffer exwm-class-name))
+
+(use-package exwm
+  :init
+  (require 'exwm-randr)
+  :config
+  (exwm-randr-enable)
+  (setf exwm-workspace-number 1)
+
+  (add-hook 'exwm-update-class-hook #'user/exwm-update-class)
+
+  (require 'exwm-systemtray)
+  (exwm-systemtray-enable)
+
+  (setf exwm-input-prefix-keys
+	'(?\C-x
+	  ?\C-u
+	  ?\M-x
+	  ?\C-\ )) ; Ctrl+Space
+  (define-key exwm-mode-map [?\C-q] 'exwm-input-send-next-key)
+  (setf exwm-input-global-keys
+	`(
+	  ([?\s-r] . exwm-reset)
+	  ([?\s-h] . windmove-left)
+	  ([?\s-j] . windmove-down)
+	  ([?\s-k] . windmove-up)
+	  ([?\s-l] . windmove-right)
+
+	  ([?\s-d] . (lambda (command)
+		       (interactive (list (read-shell-command "$ ")))
+		       (start-process-shell-command command nil command)))
+
+	  ([?\s-w] . exwm-workspace-switch)
+
+	  ,@(mapcar (lambda (i)
+		      `(,(kbd (format "s-%d" i)) .
+			(lambda ()
+			  (interactive)
+			  (exwm-workspace-switch-create ,i))))
+		    (number-sequence 1 9))))
+  (exwm-enable))
 
 ;; Theme
 (use-package doom-themes
