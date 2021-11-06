@@ -138,6 +138,17 @@
 ;; Magit
 (use-package magit)
 
+;; Vertico
+(use-package vertico
+  :init
+  (vertico-mode))
+
+(use-package orderless
+  :init
+  (setf completion-styles '(orderless)
+	completion-category-defaults nil
+	completion-category-overrides '((file (styles partial-completion)))))
+
 ;; Org
 (setf org-todo-keywords '((sequence "PROJ" "TODO" "STRT" "|" "DONE")) ; Extra todo keywords
       org-log-done 'time) ; Log time when marking a todo as done
