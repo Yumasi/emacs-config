@@ -49,13 +49,8 @@
 
 ;; Fonts
 (set-face-attribute 'default nil :font "Iosevka" :height 160)
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(mode-line ((t (:family "Iosevka" :height 0.8))))
- '(mode-line-inactive ((t (:family "Iosevka" :height 0.8)))))
+(set-face-attribute 'mode-line nil :family "Iosevka" :height 0.8)
+(set-face-attribute 'mode-line-inactive nil :family "Iosevka" :height 0.8)
 
 ;; EXWM
 (defun user/exwm-update-class ()
