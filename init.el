@@ -5,6 +5,9 @@
       initial-major-mode 'fundamental-mode
       initial-scratch-message nil)
 
+;; Native comp
+(setq native-comp-async-report-warnings-errors nil)
+
 ;; Bootstrap straight.el
 (defvar bootstrap-version)
 (let ((bootstrap-file
