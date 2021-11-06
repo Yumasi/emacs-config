@@ -10,5 +10,6 @@ use =chemacs= if you wish to have multiple Emacs installation on hand.
 - Speed. I like my Emacs to be *fast*.
 - Package management with =straight=.
 - =Evil-mode= for us vimmers.
+- /On Linux only/: EXWM as a window manager
 
 See the [[todo.org]] file for planned features.

@@ -34,6 +34,6 @@ CLOSED: [2021-10-25 lun. 10:39]
 ** PROJ Org
 ** PROJ General
 - Escape as C-g
-** PROJ EXWM
+** STRT EXWM
 * Misc
 ** TODO Document how to use chemacs2 with this config

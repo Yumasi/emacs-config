@@ -55,49 +55,50 @@
 (set-face-attribute 'mode-line nil :family "Iosevka" :height 0.8)
 (set-face-attribute 'mode-line-inactive nil :family "Iosevka" :height 0.8)
 
-;; EXWM
-(defun user/exwm-update-class ()
-  (exwm-workspace-rename-buffer exwm-class-name))
+;; EXWM - Only on Linux
+(when (eq window-system 'x)
+  (defun user/exwm-update-class ()
+    (exwm-workspace-rename-buffer exwm-class-name))
 
-(use-package exwm
-  :init
-  (require 'exwm-randr)
-  :config
-  (exwm-randr-enable)
-  (setf exwm-workspace-number 1)
+  (use-package exwm
+    :init
+    (require 'exwm-randr)
+    :config
+    (exwm-randr-enable)
+    (setf exwm-workspace-number 1)
 
-  (add-hook 'exwm-update-class-hook #'user/exwm-update-class)
+    (add-hook 'exwm-update-class-hook #'user/exwm-update-class)
 
-  (require 'exwm-systemtray)
-  (exwm-systemtray-enable)
+    (require 'exwm-systemtray)
+    (exwm-systemtray-enable)
 
-  (setf exwm-input-prefix-keys
-	'(?\C-x
-	  ?\C-u
-	  ?\M-x
-	  ?\C-\ )) ; Ctrl+Space
-  (define-key exwm-mode-map [?\C-q] 'exwm-input-send-next-key)
-  (setf exwm-input-global-keys
-	`(
-	  ([?\s-r] . exwm-reset)
-	  ([?\s-h] . windmove-left)
-	  ([?\s-j] . windmove-down)
-	  ([?\s-k] . windmove-up)
-	  ([?\s-l] . windmove-right)
+    (setf exwm-input-prefix-keys
+	  '(?\C-x
+	    ?\C-u
+	    ?\M-x
+	    ?\C-\ )) ; Ctrl+Space
+    (define-key exwm-mode-map [?\C-q] 'exwm-input-send-next-key)
+    (setf exwm-input-global-keys
+	  `(
+	    ([?\s-r] . exwm-reset)
+	    ([?\s-h] . windmove-left)
+	    ([?\s-j] . windmove-down)
+	    ([?\s-k] . windmove-up)
+	    ([?\s-l] . windmove-right)
 
-	  ([?\s-d] . (lambda (command)
-		       (interactive (list (read-shell-command "$ ")))
-		       (start-process-shell-command command nil command)))
+	    ([?\s-d] . (lambda (command)
+			 (interactive (list (read-shell-command "$ ")))
+			 (start-process-shell-command command nil command)))
 
-	  ([?\s-w] . exwm-workspace-switch)
+	    ([?\s-w] . exwm-workspace-switch)
 
-	  ,@(mapcar (lambda (i)
-		      `(,(kbd (format "s-%d" i)) .
-			(lambda ()
-			  (interactive)
-			  (exwm-workspace-switch-create ,i))))
-		    (number-sequence 1 9))))
-  (exwm-enable))
+	    ,@(mapcar (lambda (i)
+			`(,(kbd (format "s-%d" i)) .
+			  (lambda ()
+			    (interactive)
+			    (exwm-workspace-switch-create ,i))))
+		      (number-sequence 1 9))))
+    (exwm-enable)))
 
 ;; Theme
 (use-package doom-themes
