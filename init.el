@@ -110,7 +110,7 @@
   :config
   (setf doom-themes-enable-bold t
 	doom-themes-enable-italic t)
-  (load-theme 'doom-monokai-pro t)
+  (load-theme 'doom-monokai-octagon t)
   (doom-themes-visual-bell-config)
   (doom-themes-org-config))
 
