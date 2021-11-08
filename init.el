@@ -109,6 +109,10 @@
   (doom-themes-visual-bell-config)
   (doom-themes-org-config))
 
+;; Rainbow delemiters
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))
+
 ;; Line numbers
 (add-hook! prog-mode-hook display-line-numbers-mode)
 
