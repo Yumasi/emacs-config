@@ -69,8 +69,20 @@
     (exwm-replace nil "Don't ask to replace the current window manager")
     :config
     (require 'exwm-randr)
+    (setf exwm-randr-workspace-output-plist
+	  '(
+	    1 "eDP"
+	    2 "eDP"
+	    3 "eDP"
+	    4 "eDP"
+	    5 "eDP"
+	    6 "HDMI-A-0"
+	    7 "HDMI-A-0"
+	    8 "HDMI-A-0"
+	    9 "HDMI-A-0"
+	    0 "HDMI-A-0"))
     (exwm-randr-enable)
-    (setf exwm-workspace-number 1)
+    (setf exwm-workspace-number 10)
 
     (add-hook 'exwm-update-class-hook #'user/exwm-update-class)
 
@@ -78,31 +90,32 @@
     (exwm-systemtray-enable)
 
     (setf exwm-input-prefix-keys
-	  '(?\C-x
-	    ?\C-u
-	    ?\M-x
-	    ?\C-\ )) ; Ctrl+Space
+          '(?\C-x
+            ?\C-h
+            ?\C-u
+            ?\M-x
+            ?\C-\ )) ; Ctrl+Space
     (define-key exwm-mode-map [?\C-q] 'exwm-input-send-next-key)
     (setf exwm-input-global-keys
-	  `(
-	    ([?\s-r] . exwm-reset)
-	    ([?\s-h] . windmove-left)
-	    ([?\s-j] . windmove-down)
-	    ([?\s-k] . windmove-up)
-	    ([?\s-l] . windmove-right)
+          `(
+            ([?\s-r] . exwm-reset)
+            ([?\s-h] . windmove-left)
+            ([?\s-j] . windmove-down)
+            ([?\s-k] . windmove-up)
+            ([?\s-l] . windmove-right)
 
-	    ([?\s-d] . (lambda (command)
-			 (interactive (list (read-shell-command "$ ")))
-			 (start-process-shell-command command nil command)))
+            ([?\s-d] . (lambda (command)
+                         (interactive (list (read-shell-command "$ ")))
+                         (start-process-shell-command command nil command)))
 
-	    ([?\s-w] . exwm-workspace-switch)
+            ([?\s-w] . exwm-workspace-switch)
 
-	    ,@(mapcar (lambda (i)
-			`(,(kbd (format "s-%d" i)) .
-			  (lambda ()
-			    (interactive)
-			    (exwm-workspace-switch-create ,i))))
-		      (number-sequence 1 9))))
+            ,@(mapcar (lambda (i)
+                        `(,(kbd (format "s-%d" i)) .
+                          (lambda ()
+                            (interactive)
+                            (exwm-workspace-switch-create ,i))))
+                      (number-sequence 0 9))))
     (exwm-enable)))
 
 ;; Theme
