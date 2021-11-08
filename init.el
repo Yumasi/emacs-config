@@ -34,6 +34,11 @@
 (setf backup-directory-alist `(("." . "~/.emacs.personal/.file-backups")))
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
+;; Who am I ?
+
+(setf user-full-name "Guillaume Pagnoux"
+      user-mail-address "gpagnoux@gmail.com")
+
 ;;; UI
 
 ;; Disable useless UI elements
