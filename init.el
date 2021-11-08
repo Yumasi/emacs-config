@@ -140,7 +140,8 @@
 ;; Evil
 (use-package evil
   :init
-  (setf evil-want-keybinding nil)
+  (setf evil-want-keybinding nil
+	evil-want-C-u-scroll t)
   :config (evil-mode 1))
 (use-package evil-collection
   :after evil
