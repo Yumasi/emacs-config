@@ -35,7 +35,6 @@
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
 ;; Who am I ?
-
 (setf user-full-name "Guillaume Pagnoux"
       user-mail-address "gpagnoux@gmail.com")
 
@@ -66,9 +65,10 @@
     (exwm-workspace-rename-buffer exwm-class-name))
 
   (use-package exwm
-    :init
-    (require 'exwm-randr)
+    :custom
+    (exwm-replace nil "Don't ask to replace the current window manager")
     :config
+    (require 'exwm-randr)
     (exwm-randr-enable)
     (setf exwm-workspace-number 1)
 
