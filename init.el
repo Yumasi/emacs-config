@@ -126,6 +126,10 @@
 (setf scroll-margin 4
       scroll-conservatively 100)
 
+;; Fill column indicator
+(add-hook! prog-mode-hook display-fill-column-indicator-mode)
+
+
 ;;; Packages
 
 ;; Evil
