@@ -38,6 +38,9 @@
 (setf user-full-name "Guillaume Pagnoux"
       user-mail-address "gpagnoux@gmail.com")
 
+;; Shell to use
+(setf shell-file-name "/usr/bin/zsh")
+
 ;;; UI
 
 ;; Disable useless UI elements
