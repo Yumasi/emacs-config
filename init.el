@@ -152,7 +152,9 @@
   (setf doom-modeline-buffer-encoding nil))
 
 ;; Magit
-(use-package magit)
+(use-package magit
+  :config
+  (setf transient-values '((magit-commit "--signoff" "--allow-empty"))))
 
 ;; Vertico
 (use-package vertico
