@@ -41,4 +41,5 @@ CLOSED: [2021-10-25 lun. 10:39]
 - Ep 2 @ 37:00
 ** TODO Orderless
 * Misc
-** TODO Document how to use chemacs2 with this config
+** DONE Document how to use chemacs2 with this config
+CLOSED: [2021-11-06 Sat 15:40]

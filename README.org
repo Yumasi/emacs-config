@@ -2,8 +2,16 @@
 
 * How to install
 
-Simply clone this repository in =~/.emacs.d= or =~/.config/emacs=. You can also
-use =chemacs= if you wish to have multiple Emacs installation on hand.
+Simply clone this repository in =~/.emacs.d= or =~/.config/emacs=. You
+can also use [[https://github.com/plexus/chemacs2][chemacs2]] if you wish to have multiple Emacs installation
+on hand. Simply install chemacs, clone the repository to
+=~/.emacs.default=, and add the following to your
+=~/.emacs-profiles.el=:
+
+#+begin_src emacs-lisp
+(("default" . ((user-emacs-directory . "~/.emacs.default"))))
+#+end_src
+
 
 * Features
 
