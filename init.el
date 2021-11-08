@@ -122,6 +122,10 @@
 ;; Line numbers
 (add-hook! prog-mode-hook display-line-numbers-mode)
 
+;; Scroll margin
+(setf scroll-margin 4
+      scroll-conservatively 100)
+
 ;;; Packages
 
 ;; Evil
