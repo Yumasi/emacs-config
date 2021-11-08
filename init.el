@@ -127,10 +127,12 @@
 (use-package doom-modeline
   :init (doom-modeline-mode 1)
   :config
+  ;; Display the battery
   (display-battery-mode t)
   ;; Display the time
+  (setf display-time-format "%a %d %b %R"
+	display-time-default-load-average nil)
   (display-time-mode 1)
-  (setf display-time-format "%a %d %b %R")
 
 
   (setf doom-modeline-buffer-encoding nil))

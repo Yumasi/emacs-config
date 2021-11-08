@@ -35,5 +35,7 @@ CLOSED: [2021-10-25 lun. 10:39]
 ** PROJ General
 - Escape as C-g
 ** STRT EXWM
+** TODO Vertico
+** TODO Orderless
 * Misc
 ** TODO Document how to use chemacs2 with this config
