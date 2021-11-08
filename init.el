@@ -109,6 +109,12 @@
   (doom-themes-visual-bell-config)
   (doom-themes-org-config))
 
+;; Which key
+(use-package which-key
+  :init (which-key-mode)
+  :config
+  (setf which-key-idle-delay 0.3))
+
 ;; Rainbow delemiters
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
