@@ -62,6 +62,22 @@
 (set-face-attribute 'mode-line nil :family "Iosevka" :height 0.8)
 (set-face-attribute 'mode-line-inactive nil :family "Iosevka" :height 0.8)
 
+;; Whitespace mode
+(use-package whitespace
+  :init
+  (setf
+   whitespace-style
+   '(face
+     tabs
+     space-before-tab
+     spaces
+     trailing
+     identation
+     space-mark
+     tab-mark
+     missing-newline-at-eof))
+  :hook (prog-mode . (lambda () (whitespace-mode 1))))
+
 ;; EXWM - Only on Linux
 (when (eq window-system 'x)
   (defun user/exwm-update-class ()
