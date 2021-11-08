@@ -163,6 +163,7 @@
 
 ;; Magit
 (use-package magit
+  :defer t
   :config
   (setf transient-values '((magit-commit "--signoff" "--allow-empty"))))
 
@@ -186,13 +187,15 @@
       org-log-done 'time) ; Log time when marking a todo as done
 
 (use-package org-bullets
+  :defer t
   :hook (org-mode . (lambda () (org-bullets-mode 1))))
 
 ;;; Languages support
 
 ;; Meson
 
-(use-package meson-mode)
+(use-package meson-mode
+  :defer t)
 
 ;; Reset the gc threshold to some reasonable value
 (setf gc-cons-threshold (* 16 1024 1024)) ;; 16 MB
