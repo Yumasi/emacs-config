@@ -89,17 +89,17 @@
     :config
     (require 'exwm-randr)
     (setf exwm-randr-workspace-output-plist
-	  '(
-	    1 "eDP"
-	    2 "eDP"
-	    3 "eDP"
-	    4 "eDP"
-	    5 "eDP"
-	    6 "HDMI-A-0"
-	    7 "HDMI-A-0"
-	    8 "HDMI-A-0"
-	    9 "HDMI-A-0"
-	    0 "HDMI-A-0"))
+          '(
+            1 "eDP"
+            2 "eDP"
+            3 "eDP"
+            4 "eDP"
+            5 "eDP"
+            6 "HDMI-A-0"
+            7 "HDMI-A-0"
+            8 "HDMI-A-0"
+            9 "HDMI-A-0"
+            0 "HDMI-A-0"))
     (exwm-randr-enable)
     (setf exwm-workspace-number 10)
 
@@ -111,7 +111,6 @@
     (setf exwm-input-prefix-keys
           '(?\C-x
             ?\C-h
-            ?\C-u
             ?\M-x
             ?\C-\ )) ; Ctrl+Space
     (define-key exwm-mode-map [?\C-q] 'exwm-input-send-next-key)
@@ -141,7 +140,7 @@
 (use-package doom-themes
   :config
   (setf doom-themes-enable-bold t
-	doom-themes-enable-italic t)
+        doom-themes-enable-italic t)
   (load-theme 'doom-monokai-octagon t)
   (doom-themes-visual-bell-config)
   (doom-themes-org-config))
@@ -173,7 +172,7 @@
 (use-package evil
   :init
   (setf evil-want-keybinding nil
-	evil-want-C-u-scroll t)
+        evil-want-C-u-scroll t)
   :config (evil-mode 1))
 (use-package evil-collection
   :after evil
@@ -183,11 +182,13 @@
 (use-package doom-modeline
   :init (doom-modeline-mode 1)
   :config
+  ;; Display the column number
+  (column-number-mode 1)
   ;; Display the battery
   (display-battery-mode t)
   ;; Display the time
   (setf display-time-format "%a %d %b %R"
-	display-time-default-load-average nil)
+        display-time-default-load-average nil)
   (display-time-mode 1)
 
 
@@ -207,8 +208,8 @@
 (use-package orderless
   :init
   (setf completion-styles '(orderless)
-	completion-category-defaults nil
-	completion-category-overrides '((file (styles partial-completion)))))
+        completion-category-defaults nil
+        completion-category-overrides '((file (styles partial-completion)))))
 
 (use-package marginalia
   :init
@@ -221,6 +222,10 @@
 (use-package org-bullets
   :defer t
   :hook (org-mode . (lambda () (org-bullets-mode 1))))
+
+;;; Editing
+
+(setq-default indent-tabs-mode nil)
 
 ;;; Languages support
 
