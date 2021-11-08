@@ -37,6 +37,8 @@ CLOSED: [2021-10-25 lun. 10:39]
 - Escape as C-g
 ** STRT EXWM
 ** TODO Vertico
+** TODO Helpful
+- Ep 2 @ 37:00
 ** TODO Orderless
 * Misc
 ** TODO Document how to use chemacs2 with this config

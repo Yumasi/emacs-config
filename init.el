@@ -177,6 +177,10 @@
 	completion-category-defaults nil
 	completion-category-overrides '((file (styles partial-completion)))))
 
+(use-package marginalia
+  :init
+  (marginalia-mode))
+
 ;; Org
 (setf org-todo-keywords '((sequence "PROJ" "TODO" "STRT" "|" "DONE")) ; Extra todo keywords
       org-log-done 'time) ; Log time when marking a todo as done
