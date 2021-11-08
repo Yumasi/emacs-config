@@ -180,6 +180,9 @@
 (setf org-todo-keywords '((sequence "PROJ" "TODO" "STRT" "|" "DONE")) ; Extra todo keywords
       org-log-done 'time) ; Log time when marking a todo as done
 
+(use-package org-bullets
+  :hook (org-mode . (lambda () (org-bullets-mode 1))))
+
 ;;; Languages support
 
 ;; Meson
