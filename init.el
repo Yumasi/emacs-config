@@ -211,9 +211,12 @@
 
 ;; Magit
 (use-package magit
-  :defer t
   :config
-  (setf transient-values '((magit-commit "--signoff" "--allow-empty"))))
+  (setf transient-values '((magit-commit "--signoff" "--allow-empty")))
+  :general
+  (yum/leader-keys
+    "g" '(:ignore t :which-key "git")
+    "g s" 'magit-status))
 
 ;; Vertico
 (use-package vertico
@@ -292,14 +295,5 @@
   "f d" 'dired
   "f f" 'find-file
   "f s" 'save-buffer
-
-  "g" '(:ignore t :which-key "git")
-  "g s" 'magit-status
-
-  "h" '(:ignore t :which-key "help")
-  "h f" 'describe-function
-  "h v" 'describe-variable
-  "h o" 'describe-symbol
-  "h k" 'describe-key)
 
 ;;; init.el ends here
