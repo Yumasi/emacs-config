@@ -58,7 +58,7 @@
       tooltip-mode nil ; Disable tooltips
       set-fringe-mode 10) ; Give us some margins
 
-(setf visible-bell t) ; Scream at me quietly
+(defalias 'yes-or-no-p 'y-or-n-p) ; One letter answers
 
 ;; Fonts
 (set-face-attribute 'default nil :font "Iosevka" :height 160)
