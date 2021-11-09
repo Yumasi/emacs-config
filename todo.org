@@ -33,8 +33,7 @@ CLOSED: [2021-10-25 lun. 10:39]
 ** STRT Magit
 ** PROJ Org [0/1]
 *** TODO Setup nice fonts
-** PROJ General
-- Escape as C-g
+** DONE General
 ** STRT EXWM
 ** TODO Vertico
 ** TODO Helpful

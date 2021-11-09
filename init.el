@@ -80,7 +80,7 @@
 
 ;; EXWM - Only on Linux
 (when (eq window-system 'x)
-  (defun user/exwm-update-class ()
+  (defun yum/exwm-update-class ()
     (exwm-workspace-rename-buffer exwm-class-name))
 
   (use-package exwm
@@ -103,7 +103,7 @@
     (exwm-randr-enable)
     (setf exwm-workspace-number 10)
 
-    (add-hook 'exwm-update-class-hook #'user/exwm-update-class)
+    (add-hook 'exwm-update-class-hook #'yum/exwm-update-class)
 
     (require 'exwm-systemtray)
     (exwm-systemtray-enable)
@@ -169,11 +169,30 @@
 ;;; Packages
 
 ;; Evil
+(use-package general
+  :config
+  (general-create-definer
+   yum/leader-keys
+   :keymaps '(normal insert visual emacs)
+   :prefix "SPC"
+   :global-prefix "C-SPC"))
+
 (use-package evil
   :init
   (setf evil-want-keybinding nil
-        evil-want-C-u-scroll t)
-  :config (evil-mode 1))
+        evil-want-C-u-scroll t
+        evil-want-C-w-in-emacs-state t)
+  :config
+  (general-define-key
+   :states 'insert
+   "C-g" 'evil-normal-state
+
+   :states 'motion
+   "j" 'evil-next-visual-line
+   "k" 'evil-previous-visual-line)
+
+  (evil-mode 1))
+
 (use-package evil-collection
   :after evil
   :config (evil-collection-init))
@@ -202,8 +221,14 @@
 
 ;; Vertico
 (use-package vertico
+  :straight (:files ("*.el" "extensions/*.el"))
   :init
-  (vertico-mode))
+  (vertico-mode)
+
+  :general
+  (:keymaps 'vertico-map
+            "C-j" 'vertico-next
+            "C-k" 'vertico-previous))
 
 (use-package orderless
   :init
@@ -257,5 +282,28 @@
 
 ;; Reset the gc threshold to some reasonable value
 (setf gc-cons-threshold (* 16 1024 1024)) ;; 16 MB
+
+;;; Global keybindings
+
+(yum/leader-keys
+  "SPC" '(execute-extended-command :which-key "M-x")
+
+  "a" '(:ignore t :which-key "apps")
+  "a p" 'proced
+  "a s" 'eshell
+
+  "f" '(:ignore t :which-key "files")
+  "f d" 'dired
+  "f f" 'find-file
+  "f s" 'save-buffer
+
+  "g" '(:ignore t :which-key "git")
+  "g s" 'magit-status
+
+  "h" '(:ignore t :which-key "help")
+  "h f" 'describe-function
+  "h v" 'describe-variable
+  "h o" 'describe-symbol
+  "h k" 'describe-key)
 
 ;;; init.el ends here
