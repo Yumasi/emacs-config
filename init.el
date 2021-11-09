@@ -183,19 +183,15 @@
         evil-want-C-u-scroll t
         evil-want-C-w-in-emacs-state t)
   :config
-  (general-define-key
-   :states 'insert
-   "C-g" 'evil-normal-state
-
-   :states 'motion
-   "j" 'evil-next-visual-line
-   "k" 'evil-previous-visual-line)
-
   (evil-mode 1))
 
 (use-package evil-collection
   :after evil
   :config (evil-collection-init))
+
+(general-define-key
+ :states 'insert
+ "C-g" 'evil-normal-state)
 
 ;; Doom Modeline
 (use-package doom-modeline
