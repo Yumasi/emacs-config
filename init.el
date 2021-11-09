@@ -314,6 +314,7 @@
 
   "b" '(:ignore t :which-key "buffers")
   "b k" 'kill-this-buffer
+  "b b" 'ido-switch-buffer
 
   "f" '(:ignore t :which-key "files")
   "f d" 'dired
