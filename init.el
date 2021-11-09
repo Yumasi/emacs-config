@@ -261,8 +261,12 @@
   (setq enable-recursive-minibuffers t))
 
 ;; Org
-(setf org-todo-keywords '((sequence "PROJ" "TODO" "STRT" "|" "DONE")) ; Extra todo keywords
-      org-log-done 'time) ; Log time when marking a todo as done
+(use-package org
+  :config
+  (setf org-todo-keywords '((sequence "PROJ" "TODO" "STRT" "|" "DONE")) ; Extra todo keywords
+        org-log-done 'time) ; Log time when marking a todo as done
+
+  :hook (org-mode  . 'org-indent-mode))
 
 (use-package org-bullets
   :defer t
