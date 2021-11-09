@@ -32,7 +32,7 @@
 
 ;;; Basic config
 (setf backup-directory-alist `(("." . "~/.emacs.personal/.file-backups")))
-(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+(global-set-key (kbd "<escape>") #'keyboard-escape-quit)
 
 ;; Who am I ?
 (setf user-full-name "Guillaume Pagnoux"
@@ -113,7 +113,7 @@
             ?\C-h
             ?\M-x
             ?\C-\ )) ; Ctrl+Space
-    (define-key exwm-mode-map [?\C-q] 'exwm-input-send-next-key)
+    (define-key exwm-mode-map [?\C-q] #'exwm-input-send-next-key)
     (setf exwm-input-global-keys
           `(
             ([?\s-r] . exwm-reset)
