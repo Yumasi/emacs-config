@@ -295,6 +295,9 @@
   "a p" 'proced
   "a s" 'eshell
 
+  "b" '(:ignore t :which-key "buffers")
+  "b k" 'kill-this-buffer
+
   "f" '(:ignore t :which-key "files")
   "f d" 'dired
   "f f" 'find-file
