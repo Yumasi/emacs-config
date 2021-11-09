@@ -300,9 +300,6 @@
 (use-package meson-mode
   :defer t)
 
-;; Reset the gc threshold to some reasonable value
-(setf gc-cons-threshold (* 16 1024 1024)) ;; 16 MB
-
 ;;; Global keybindings
 
 (yum/leader-keys
@@ -322,5 +319,8 @@
   "f s" 'save-buffer
 
   "w" '(evil-window-map :which-key "windows"))
+
+;; Reset the gc threshold to some reasonable value
+(setf gc-cons-threshold (* 16 1024 1024)) ;; 16 MB
 
 ;;; init.el ends here
