@@ -41,6 +41,9 @@
 ;; Shell to use
 (setf shell-file-name "/usr/bin/zsh")
 
+;; Follow symlinks
+(setf vc-follow-symlinks t)
+
 ;;; UI
 
 ;; Disable useless UI elements
