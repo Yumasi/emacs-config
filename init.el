@@ -193,6 +193,17 @@
  :states 'insert
  "C-g" 'evil-normal-state)
 
+;; Helpful
+
+(use-package helpful
+  :general
+  (yum/leader-keys
+    "h" '(:ignore t :which-key "help")
+    "h f" 'helpful-callable
+    "h v" 'helpful-variable
+    "h o" 'helpful-symbol
+    "h k" 'helpful-key))
+
 ;; Doom Modeline
 (use-package doom-modeline
   :init (doom-modeline-mode 1)
