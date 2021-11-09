@@ -321,4 +321,6 @@
   "f f" 'find-file
   "f s" 'save-buffer
 
+  "w" '(evil-window-map :which-key "windows"))
+
 ;;; init.el ends here
