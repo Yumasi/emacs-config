@@ -280,10 +280,9 @@
 ;; Org
 (use-package org
   :config
-  (setf org-todo-keywords '((sequence "PROJ" "TODO" "STRT" "|" "DONE")) ; Extra todo keywords
-        org-log-done 'time) ; Log time when marking a todo as done
-
-  :hook (org-mode  . 'org-indent-mode))
+  (setf org-todo-keywords '((sequence "PROJ" "TODO" "STRT" "|" "DONE"))  ; Extra todo keywords
+        org-log-done 'time  ; Log time when marking a todo as done
+        org-startup-indented t))
 
 (use-package org-bullets
   :defer t
