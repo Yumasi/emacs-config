@@ -290,6 +290,11 @@
 
 ;;; Editing
 
+(use-package parinfer-rust-mode
+  :hook emacs-lisp-mode
+  :init
+  (setq parinfer-rust-autodownload t))
+
 (setq-default indent-tabs-mode nil)
 
 ;;; Languages support
