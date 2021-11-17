@@ -132,6 +132,7 @@
                          (start-process-shell-command command nil command)))
 
             ([?\s-w] . exwm-workspace-switch)
+            ([?\s-t] . exwm-floating-toggle-floating)
 
             ,@(mapcar (lambda (i)
                         `(,(kbd (format "s-%d" i)) .
