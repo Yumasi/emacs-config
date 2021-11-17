@@ -290,6 +290,10 @@
   :defer t
   :hook (org-mode . (lambda () (org-bullets-mode 1))))
 
+;; Direnv
+(use-package direnv
+  :config (direnv-mode))
+
 ;;; Editing
 
 (use-package parinfer-rust-mode
