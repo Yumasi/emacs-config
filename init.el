@@ -296,6 +296,7 @@
   (setq parinfer-rust-autodownload t))
 
 (setq-default indent-tabs-mode nil)
+(add-hook! before-save-hook delete-trailing-whitespace)
 
 ;;; Languages support
 
