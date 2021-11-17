@@ -79,7 +79,9 @@
      space-mark
      tab-mark
      missing-newline-at-eof))
-  :hook (prog-mode . (lambda () (whitespace-mode 1))))
+  :hook
+  (prog-mode . (lambda ()
+                (whitespace-mode 1))))
 
 ;; EXWM - Only on Linux
 (when (eq window-system 'x)
@@ -178,10 +180,10 @@
 (use-package general
   :config
   (general-create-definer
-   yum/leader-keys
-   :keymaps '(normal insert visual emacs)
-   :prefix "SPC"
-   :global-prefix "C-SPC"))
+    yum/leader-keys
+    :keymaps '(normal insert visual emacs)
+    :prefix "SPC"
+    :global-prefix "C-SPC"))
 
 (use-package evil
   :init
