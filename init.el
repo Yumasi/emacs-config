@@ -44,6 +44,8 @@
 ;; Follow symlinks
 (setf vc-follow-symlinks t)
 
+;; Set custom file
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 ;;; UI
 
 ;; Disable useless UI elements
@@ -203,7 +205,6 @@
  "C-g" 'evil-normal-state)
 
 ;; Helpful
-
 (use-package helpful
   :general
   (yum/leader-keys
@@ -350,4 +351,7 @@
 ;; Reset the gc threshold to some reasonable value
 (setf gc-cons-threshold (* 16 1024 1024)) ;; 16 MB
 
+;; Load custom stuff
+(when (file-directory-p custom-file)
+  (load custom-file))
 ;;; init.el ends here

@@ -2,3 +2,4 @@ straight
 eshell
 .file-backups
 transient
+custom.el
