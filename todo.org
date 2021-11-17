@@ -10,14 +10,14 @@ CLOSED: [2021-10-25 lun. 10:45]
 ** Setup straight [1/2]
 *** DONE Straight installation
 CLOSED: [2021-10-25 lun. 10:48]
-*** TODO Setup package pining
-** PROJ Setup LSP
+*** PROJ Setup package pining
+** STRT Setup LSP
 ** Utils
 *** add-hook!
 **** TODO support multiple arguments
 * Langs
-** PROJ C/C++
-** PROJ Rust
+** TODO C/C++
+** TODO Rust
 * UI
 ** DONE Fonts
 CLOSED: [2021-11-03 mer. 10:51]
@@ -28,17 +28,22 @@ CLOSED: [2021-11-03 mer. 11:12]
 CLOSED: [2021-11-03 mer. 10:51]
 ** DONE Evil mode
 CLOSED: [2021-10-25 lun. 10:39]
-** PROJ Swiper
-** PROJ Projectile
+** TODO Swiper
+** STRT Projectile
+** TODO Flycheck
+** TODO Company
 ** STRT Magit
-** PROJ Org [0/1]
+** PROJ Org [0/3]
 *** TODO Setup nice fonts
+*** TODO Auto update counters
+*** TODO
 ** DONE General
 ** STRT EXWM
-** TODO Vertico
-** TODO Helpful
-- Ep 2 @ 37:00
-** TODO Orderless
+** STRT Vertico
+** DONE Helpful
+CLOSED: [2021-11-09 mar. 17:10]
+** STRT Orderless
 * Misc
 ** DONE Document how to use chemacs2 with this config
 CLOSED: [2021-11-06 Sat 15:40]
+** TODO Lookup autoloading

@@ -258,6 +258,13 @@
   :init
   (marginalia-mode))
 
+(use-package projectile
+  :config (projectile-mode)
+  :init
+  (when (file-directory-p "~/repo")
+    (setq projectile-project-search-path '("~/repo")))
+  (setq projectile-switch-project-action #'projectile-dired))
+
 (use-package emacs
   :init
   ;; Add prompt indicator to `completing-read-multiple'.
@@ -329,7 +336,8 @@
   "f f" 'find-file
   "f s" 'save-buffer
 
-  "w" '(evil-window-map :which-key "windows"))
+  "w" '(evil-window-map :which-key "windows")
+  "p" '(projectile-command-map :which-key "projects"))
 
 ;; Reset the gc threshold to some reasonable value
 (setf gc-cons-threshold (* 16 1024 1024)) ;; 16 MB
