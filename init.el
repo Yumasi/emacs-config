@@ -233,7 +233,8 @@
 ;; Magit
 (use-package magit
   :config
-  (setf transient-values '((magit-commit "--signoff" "--allow-empty")))
+  (setf transient-values '((magit-commit "--signoff" "--allow-empty"))
+        magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
   :general
   (yum/leader-keys
     "g" '(:ignore t :which-key "git")
