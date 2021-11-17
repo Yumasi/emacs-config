@@ -318,6 +318,13 @@
 (use-package meson-mode
   :defer t)
 
+;; Bitbake
+(use-package bitbake
+  :defer t
+  :custom
+  (bitbake-poky-directory nil)
+  (bitbake-build-directory nil))
+
 ;;; Global keybindings
 
 (yum/leader-keys
