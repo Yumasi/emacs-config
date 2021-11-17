@@ -310,7 +310,8 @@
   :init
   (setq parinfer-rust-autodownload t))
 
-(setq-default indent-tabs-mode nil)
+(setq-default indent-tabs-mode nil
+              require-final-newline t)
 (add-hook! before-save-hook delete-trailing-whitespace)
 
 ;;; Languages support
