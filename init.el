@@ -304,6 +304,12 @@
 (use-package direnv
   :config (direnv-mode))
 
+;; Vterm
+(use-package vterm
+  :custom
+  (vterm-shell "/usr/bin/fish")
+  (vterm-buffer-name-string "*vterm - %s*"))
+
 ;;; Editing
 
 (use-package parinfer-rust-mode
@@ -337,6 +343,7 @@
   "a" '(:ignore t :which-key "apps")
   "a p" 'proced
   "a s" 'eshell
+  "a t" 'vterm-other-window
 
   "b" '(:ignore t :which-key "buffers")
   "b k" 'kill-this-buffer
