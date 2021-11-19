@@ -32,7 +32,7 @@
   `(add-hook ',hook ',f))
 
 ;;; Basic config
-(setf backup-directory-alist `(("." . "~/.emacs.personal/.file-backups")))
+(setf backup-directory-alist `(("." . ,(expand-file-name ".file-backups" user-emacs-directory))))
 (global-set-key (kbd "<escape>") #'keyboard-escape-quit)
 
 ;; Who am I ?
@@ -372,7 +372,8 @@
 (use-package parinfer-rust-mode
   :hook emacs-lisp-mode
   :init
-  (setq parinfer-rust-autodownload t))
+  (setq parinfer-rust-autodownload t
+        parinfer-rust-library-directory (expand-file-name ".parinfer-rust/" user-emacs-directory)))
 
 (setq-default indent-tabs-mode nil
               require-final-newline t)
