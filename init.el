@@ -308,7 +308,9 @@
 (use-package vterm
   :custom
   (vterm-shell "/usr/bin/fish")
-  (vterm-buffer-name-string "*vterm - %s*"))
+  (vterm-buffer-name-string "*vterm - %s*")
+  :config
+  (setq vterm-timer-delay 0.01))
 
 ;;; Editing
 
