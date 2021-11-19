@@ -328,6 +328,10 @@
               require-final-newline t)
 (add-hook! before-save-hook delete-trailing-whitespace)
 
+(use-package flycheck
+  :config
+  (global-flycheck-mode))
+
 ;;; Languages support
 
 ;; Meson
