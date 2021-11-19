@@ -5,7 +5,7 @@
 CLOSED: [2021-10-22 ven. 11:25  ]
 ** DONE Backup files in one directory
 CLOSED: [2021-10-25 lun. 10:45]
-** TODO Save the .emacs directory in a variable
+** TODO Save the ~.emacs~ directory in a variable
 * Core stuff
 ** Setup straight [1/2]
 *** DONE Straight installation
@@ -30,13 +30,14 @@ CLOSED: [2021-11-03 mer. 10:51]
 CLOSED: [2021-10-25 lun. 10:39]
 ** TODO Swiper
 ** STRT Projectile
-** TODO Flycheck
+** STRT Flycheck
 ** TODO Company
 ** STRT Magit
-** PROJ Org [0/3]
-*** TODO Setup nice fonts
+*** TODO Gutter
+** STRT Org [2/3]
+*** DONE Setup nice fonts
+*** DONE Pretty look
 *** TODO Auto update counters
-*** TODO
 ** DONE General
 ** STRT EXWM
 ** STRT Vertico

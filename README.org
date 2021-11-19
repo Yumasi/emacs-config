@@ -1,23 +1,23 @@
 #+TITLE: README
+#+AUTHOR: Guillaume Pagnoux
 
 * How to install
 
-Simply clone this repository in =~/.emacs.d= or =~/.config/emacs=. You
-can also use [[https://github.com/plexus/chemacs2][chemacs2]] if you wish to have multiple Emacs installation
-on hand. Simply install chemacs, clone the repository to
-=~/.emacs.default=, and add the following to your
-=~/.emacs-profiles.el=:
+Simply clone this repository in =~/.emacs.d= or =~/.config/emacs=. You can
+also use [[https://github.com/plexus/chemacs2][chemacs2]] if you wish to have multiple Emacs installation on
+hand. Simply install chemacs, clone the repository to
+=~/.emacs.default=, and add the following to your =~/.emacs-profiles.el=:
 
 #+begin_src emacs-lisp
 (("default" . ((user-emacs-directory . "~/.emacs.default"))))
 #+end_src
 
-
 * Features
 
 - Speed. I like my Emacs to be *fast*.
-- Package management with =straight=.
-- =Evil-mode= for us vimmers.
+- Package management with ~straight~.
+- ~Evil-mode~ for us vimmers.
+- Beautiful (subjectively) ~org-mode~ setup
 - /On Linux only/: EXWM as a window manager
 
 See the [[todo.org]] file for planned features.

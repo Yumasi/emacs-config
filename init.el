@@ -3,7 +3,8 @@
 ;; Make UTF-8 the default coding system (set-language-environment "UTF-8") ;; Minimal startup
 (setf inhibit-startup-message t
       initial-major-mode 'fundamental-mode
-      initial-scratch-message nil)
+      initial-scratch-message nil
+      inhibit-compacting-font-caches t)
 
 ;; Native comp
 (setq native-comp-async-report-warnings-errors nil)
@@ -64,6 +65,8 @@
 
 ;; Fonts
 (set-face-attribute 'default nil :font "Iosevka" :height 160)
+(set-face-attribute 'fixed-pitch nil :font "Iosevka" :height 160)
+(set-face-attribute 'variable-pitch nil :font "San Francisco Text" :weight 'regular :height 160)
 (set-face-attribute 'mode-line nil :family "Iosevka" :height 0.8)
 (set-face-attribute 'mode-line-inactive nil :family "Iosevka" :height 0.8)
 
@@ -149,7 +152,7 @@
   :config
   (setf doom-themes-enable-bold t
         doom-themes-enable-italic t)
-  (load-theme 'doom-monokai-octagon t)
+  (load-theme 'doom-dracula t)
   (doom-themes-visual-bell-config)
   (doom-themes-org-config))
 
@@ -239,11 +242,7 @@
 (use-package magit
   :config
   (setf transient-values '((magit-commit "--signoff" "--allow-empty"))
-        magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
-  :general
-  (yum/leader-keys
-    "g" '(:ignore t :which-key "git")
-    "g s" 'magit-status))
+        magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
 
 ;; Vertico
 (use-package vertico
@@ -295,15 +294,69 @@
   (setq enable-recursive-minibuffers t))
 
 ;; Org
+(defun yum/org-setup ()
+  (setf line-spacing 0.1
+        left-margin-width 2
+        right-margin-width 2)
+
+  (variable-pitch-mode 1)
+  (org-indent-mode 1))
+
 (use-package org
+  :hook (org-mode . yum/org-setup)
   :config
   (setf org-todo-keywords '((sequence "PROJ" "TODO" "STRT" "|" "DONE"))  ; Extra todo keywords
+        org-ellipsis " ▼"
         org-log-done 'time  ; Log time when marking a todo as done
-        org-startup-indented t))
+        org-startup-indented t
+        org-hide-emphasis-markers nil
+        org-pretty-entities t
+        org-fontify-quote-and-verse-blocks t)
 
-(use-package org-bullets
+  (dolist (face '((org-level-1 . 1.2)
+                  (org-level-2 . 1.1)
+                  (org-level-3 . 1.05)
+                  (org-level-4 . 1.0)
+                  (org-level-5 . 1.1)
+                  (org-level-6 . 1.1)
+                  (org-level-7 . 1.1)
+                  (org-level-8 . 1.1)))
+    (set-face-attribute (car face) nil :font "San Francisco Text" :weight 'regular :height (cdr face)))
+
+  (set-face-attribute 'org-block nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-code nil :inherit '(shadow fixed-pitch org-block))
+  (set-face-attribute 'org-document-title nil :height 1.4)
+  (set-face-attribute 'org-ellipsis nil :foreground "#5e5e5e" :height 0.7)
+  (set-face-attribute 'org-formula nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
+  (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
+  (set-face-attribute 'org-table nil :background "#23242f" :inherit '(fixed-pitch))
+  (set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
+  (set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch)))
+
+
+(use-package org-superstar
   :defer t
-  :hook (org-mode . (lambda () (org-bullets-mode 1))))
+  :hook (org-mode . (lambda () (org-superstar-mode 1))))
+
+(use-package visual-fill-column
+  :init
+  (defun yum/org-visual-fill ()
+    (setf visual-fill-column-width 100
+          visual-fill-column-center-text t)
+
+    (visual-fill-column-mode 1)
+    (auto-fill-mode 1))
+
+  :hook (org-mode . yum/org-visual-fill))
+
+(use-package evil-org
+  :after org
+  :hook (org-mode . (lambda () evil-org-mode))
+  :config
+  (require 'evil-org-agenda)
+  (evil-org-agenda-set-keys))
 
 ;; Direnv
 (use-package direnv
@@ -369,6 +422,16 @@
   "f d" 'dired
   "f f" 'find-file
   "f s" 'save-buffer
+
+  "g" '(:ignore t :which-key "git")
+  "g s" 'magit-status
+
+  "h" '(:ignore t :which-key "help")
+  "h f" 'helpful-callable
+  "h F" 'describe-face
+  "h v" 'helpful-variable
+  "h o" 'helpful-symbol
+  "h k" 'helpful-key
 
   "w" '(evil-window-map :which-key "windows")
   "p" '(projectile-command-map :which-key "projects"))
