@@ -342,6 +342,10 @@
   (bitbake-poky-directory nil)
   (bitbake-build-directory nil))
 
+;; Systemd
+(use-package systemd
+  :defer t)
+
 ;;; Global keybindings
 
 (yum/leader-keys
