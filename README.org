@@ -14,10 +14,29 @@ hand. Simply install chemacs, clone the repository to
 
 * Features
 
+** Goals
+
 - Speed. I like my Emacs to be *fast*.
 - Package management with ~straight~.
 - ~Evil-mode~ for us vimmers.
+- Full-featured development environment
 - Beautiful (subjectively) ~org-mode~ setup
-- /On Linux only/: EXWM as a window manager
+- /On Linux only/: ~EXWM~ as a window manager
+
+** Integrated tools
+
+- =direnv=: for its usefulness
+- =straight=: for package management
+- =vertico=: for completions
+- =vterm=: for terminal emulation
+
+** Supported languages
+
+- =Bitbake=
+- =Lisp=
+- =Meson=
+- =Systemd files=
+
+** Planned features
 
 See the [[todo.org]] file for planned features.
