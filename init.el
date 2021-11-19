@@ -180,6 +180,10 @@
 (use-package all-the-icons-dired
   :hook (dired-mode . all-the-icons-dired-mode))
 
+;; Highlight TODOs & stuff
+(use-package hl-todo
+  :hook (prog-mode . hl-todo-mode))
+
 ;;; Packages
 
 ;; Evil
