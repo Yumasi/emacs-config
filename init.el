@@ -182,9 +182,14 @@
 ;; Evil
 (use-package general
   :config
+  (general-override-mode)
   (general-create-definer
     yum/leader-keys
-    :keymaps '(normal insert visual emacs)
+    :states '(normal
+              insert
+              visual
+              emacs)
+
     :prefix "SPC"
     :global-prefix "C-SPC"))
 
@@ -340,6 +345,7 @@
 ;;; Global keybindings
 
 (yum/leader-keys
+  :keymaps 'override
   "SPC" '(execute-extended-command :which-key "M-x")
 
   "a" '(:ignore t :which-key "apps")
