@@ -204,7 +204,8 @@
   :init
   (setf evil-want-keybinding nil
         evil-want-C-u-scroll t
-        evil-want-C-w-in-emacs-state t)
+        evil-want-C-w-in-emacs-state t
+        evil-undo-system 'undo-redo)
   :config
   (evil-mode 1))
 
