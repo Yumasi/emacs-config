@@ -306,6 +306,7 @@
 
 (use-package org
   :hook (org-mode . yum/org-setup)
+  (org-indent-mode . (lambda () (set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))))
   :config
   (setf org-todo-keywords '((sequence "PROJ" "TODO" "STRT" "|" "DONE"))  ; Extra todo keywords
         org-ellipsis " ▼"
@@ -334,8 +335,7 @@
   (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
   (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
   (set-face-attribute 'org-table nil :background "#23242f" :inherit '(fixed-pitch))
-  (set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
-  (set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch)))
+  (set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch)))
 
 
 (use-package org-superstar
