@@ -402,6 +402,14 @@
   (bitbake-poky-directory nil)
   (bitbake-build-directory nil))
 
+;; Markdown
+(use-package markdown-mode
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setf markdown-command "multimarkdown"))
+
 ;; Systemd
 (use-package systemd
   :defer t)
