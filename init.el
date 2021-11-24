@@ -345,7 +345,8 @@
 (use-package visual-fill-column
   :init
   (defun yum/org-visual-fill ()
-    (setf visual-fill-column-width 100
+    (setf fill-column 79
+          visual-fill-column-width 100
           visual-fill-column-center-text t)
 
     (visual-fill-column-mode 1)
