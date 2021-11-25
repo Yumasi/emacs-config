@@ -47,6 +47,7 @@
 
 ;; Set custom file
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+
 ;;; UI
 
 ;; Disable useless UI elements
@@ -389,6 +390,11 @@
   :config
   (global-flycheck-mode))
 
+;; Docker stuff
+(use-package docker-tramp)
+(use-package docker)
+(use-package dockerfile-mode)
+
 ;;; Languages support
 
 ;; Meson
@@ -422,6 +428,7 @@
   "SPC" '(execute-extended-command :which-key "M-x")
 
   "a" '(:ignore t :which-key "apps")
+  "a d" 'docker
   "a p" 'proced
   "a s" 'eshell
   "a t" 'vterm-other-window
