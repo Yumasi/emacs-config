@@ -1,7 +1,5 @@
-.file-backups
 .parinfer-rust
 custom.el
 eshell
 straight
 transient
-projectile-bookmarks.eld

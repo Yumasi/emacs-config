@@ -31,8 +31,10 @@
   "Add F to HOOK"
   `(add-hook ',hook ',f))
 
+;; No littering
+(use-package no-littering)
+
 ;;; Basic config
-(setf backup-directory-alist `(("." . ,(expand-file-name ".file-backups" user-emacs-directory))))
 (global-set-key (kbd "<escape>") #'keyboard-escape-quit)
 
 ;; Who am I ?
