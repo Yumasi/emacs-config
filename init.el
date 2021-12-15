@@ -323,7 +323,7 @@
   :hook (org-mode . yum/org-setup)
   (org-indent-mode . (lambda () (set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))))
   :config
-  (setf org-todo-keywords '((sequence "PROJ" "TODO" "STRT" "|" "DONE"))  ; Extra todo keywords
+  (setf org-todo-keywords '((sequence "PROJ(p)" "TODO(t)" "STRT(s)" "REVIEW(r)" "|" "DONE(d)"))  ; Extra todo keywords. More sequences can be defined.
         org-ellipsis " ▼"
         org-log-done 'time  ; Log time when marking a todo as done
         org-startup-indented t
