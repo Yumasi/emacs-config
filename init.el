@@ -375,6 +375,13 @@
 
 ;; Vterm
 (use-package vterm
+  :straight
+  `(
+    :pre-build (
+                ("rm" "-fr" "build")
+                ("mkdir" "build")
+                ("bash" "-c" "cd \"$1\" && cmake .. && make" "--" ,(concat (straight--repos-dir "emacs-libvterm") "build"))))
+
   :custom
   (vterm-shell "/usr/bin/fish")
   (vterm-buffer-name-string "*vterm - %s*")
