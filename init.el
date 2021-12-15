@@ -329,7 +329,8 @@
         org-startup-indented t
         org-hide-emphasis-markers nil
         org-pretty-entities t
-        org-fontify-quote-and-verse-blocks t)
+        org-fontify-quote-and-verse-blocks t
+        org-agenda-start-with-log-mode t)
 
   (dolist (face '((org-level-1 . 1.2)
                   (org-level-2 . 1.1)
