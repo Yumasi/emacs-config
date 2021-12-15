@@ -427,9 +427,14 @@
 ;; Bitbake
 (use-package bitbake
   :defer t
+  :mode (("\\.bb\\'" . bitbake-mode)
+         ("\\.bbappend'" . bitbake-mode)
+         ("\\.inc'" . bitbake-mode))
   :custom
   (bitbake-poky-directory nil)
-  (bitbake-build-directory nil))
+  (bitbake-build-directory nil)
+  :config
+  (setf default-tab-width 8))
 
 ;; Markdown
 (use-package markdown-mode
