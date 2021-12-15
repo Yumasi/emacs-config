@@ -441,11 +441,11 @@
   :keymaps 'override
   "SPC" '(execute-extended-command :which-key "M-x")
 
-  "a" '(:ignore t :which-key "apps")
-  "a d" 'docker
-  "a p" 'proced
-  "a s" 'eshell
-  "a t" 'vterm-other-window
+  "o" '(:ignore t :which-key "open")
+  "o a" 'org-agenda
+  "o d" 'docker
+  "o p" 'proced
+  "o s" 'eshell
 
   "b" '(:ignore t :which-key "buffers")
   "b k" 'kill-this-buffer
