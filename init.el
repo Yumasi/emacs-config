@@ -396,6 +396,27 @@
   :config
   (setq vterm-timer-delay 0.01))
 
+(use-package vterm-toggle
+  :after vterm
+  :custom
+  (vterm-toggle-cd-auto-create-buffer t)
+  :config
+  (add-to-list 'display-buffer-alist
+      '((lambda(bufname _) (with-current-buffer bufname (equal major-mode 'vterm-mode)))
+        (display-buffer-reuse-window display-buffer-in-direction)
+        (direction . bottom)
+        (dedicated . nil)
+        (reusable-frames . visible)
+        (window-height . 0.3)))
+  :general
+  (:keymaps 'vterm-mode-map
+            "<f2>" 'vterm
+            "<f3>" 'vterm-toggle-forward
+            "<f4>" 'vterm-toggle-backward)
+  (:keymaps 'override
+            "<f1>" 'vterm-toggle
+            "C-<f1>" 'vterm-toggle-cd))
+
 ;;; Editing
 
 (use-package parinfer-rust-mode
