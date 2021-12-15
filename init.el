@@ -89,7 +89,7 @@
      missing-newline-at-eof))
   :hook
   (prog-mode . (lambda ()
-                (whitespace-mode 1))))
+                 (whitespace-mode 1))))
 
 ;; EXWM - Only on Linux
 (when (eq window-system 'x)
@@ -101,7 +101,7 @@
     (exwm-replace nil "Don't ask to replace the current window manager")
     :config
     (require 'exwm-randr)
-    (setf exwm-randr-workspace-output-plist
+    (setf exwm-randr-workspace-monitor-plist
           '(
             1 "eDP"
             2 "eDP"
@@ -112,7 +112,12 @@
             7 "HDMI-A-0"
             8 "HDMI-A-0"
             9 "HDMI-A-0"
-            0 "HDMI-A-0"))
+            0 "HDMI-A-0"
+            6 "DisplayPort-0"
+            7 "DisplayPort-0"
+            8 "DisplayPort-0"
+            9 "DisplayPort-0"
+            0 "DisplayPort-0"))
     (exwm-randr-enable)
     (setf exwm-workspace-number 10)
 
