@@ -351,8 +351,16 @@
   (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
   (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
   (set-face-attribute 'org-table nil :background "#23242f" :inherit '(fixed-pitch))
-  (set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch)))
+  (set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
 
+  (yum/leader-keys
+    :keymaps 'org-mode-map
+    "m" '(:ignore t :which-key "org-mode")
+    "m d" '(:ignore t :which-key "date")
+    "m d s" 'org-schedule
+    "m d d" 'org-deadline
+
+    "m t" 'org-todo))
 
 (use-package org-superstar
   :defer t

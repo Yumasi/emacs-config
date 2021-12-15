@@ -34,13 +34,28 @@ CLOSED: [2021-10-25 lun. 10:39]
 ** TODO Company
 ** STRT Magit
 *** TODO Gutter
-** STRT Org [2/3]
+** STRT Org [2/4]
 *** DONE Setup nice fonts
 *** DONE Pretty look
 *** TODO Auto update counters
+*** STRT Org-agenda setup
+- [ ] Repeating tasks with timestamps
+- [ ] OS notifications with =org-wild-notifier=
+- [ ] =org-agenda-custom-commands=
+  - [ ] Tags
 ** DONE General
 ** STRT EXWM
 ** STRT Vertico
+This is a test
+
+#+begin_src c
+  #include <stdio.h>
+
+  int main(void) {
+    return 2
+  }
+#+end_src
+
 ** DONE Helpful
 CLOSED: [2021-11-09 mar. 17:10]
 ** STRT Orderless
