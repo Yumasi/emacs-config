@@ -155,6 +155,13 @@
                       (number-sequence 0 9))))
     (exwm-enable)))
 
+;; Zoom mode
+(use-package zoom
+  :custom
+  (zoom-ignored-major-modes '(vterm-mode))
+  :config
+  (zoom-mode 1))
+
 ;; Theme
 (use-package doom-themes
   :config
