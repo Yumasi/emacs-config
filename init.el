@@ -1,15 +1,25 @@
-;;; init.el --- Emacs init -*- lexical-binding: t; -*-
+(set-language-environment "UTF-8")
 
-;; Make UTF-8 the default coding system (set-language-environment "UTF-8") ;; Minimal startup
 (setf inhibit-startup-message t
       initial-major-mode 'fundamental-mode
       initial-scratch-message nil
       inhibit-compacting-font-caches t)
 
-;; Native comp
+(setq user-full-name "Guillaume Pagnoux"
+      user-mail-address "gpagnoux@gmail.com")
+
+(global-set-key (kbd "<escape>") #'keyboard-escape-quit)
+
+(setf shell-file-name "/usr/bin/zsh")
+
+(setf vc-follow-symlinks t)
+
+(defalias 'yes-or-no-p 'y-or-n-p) ; One letter answers
+
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+
 (setq native-comp-async-report-warnings-errors nil)
 
-;; Bootstrap straight.el
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
@@ -26,33 +36,21 @@
 (straight-use-package 'use-package)
 (setf straight-use-package-by-default t)
 
-;;; Utils
-(defmacro add-hook! (hook f)
-  "Add F to HOOK"
-  `(add-hook ',hook ',f))
-
-;; No littering
 (use-package no-littering)
 
-;;; Basic config
-(global-set-key (kbd "<escape>") #'keyboard-escape-quit)
+(use-package general
+  :config
+  (general-override-mode)
+  (general-create-definer
+    yum/leader-keys
+    :states '(normal
+              insert
+              visual
+              emacs)
 
-;; Who am I ?
-(setf user-full-name "Guillaume Pagnoux"
-      user-mail-address "gpagnoux@gmail.com")
+    :prefix "SPC"
+    :global-prefix "C-SPC"))
 
-;; Shell to use
-(setf shell-file-name "/usr/bin/zsh")
-
-;; Follow symlinks
-(setf vc-follow-symlinks t)
-
-;; Set custom file
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-
-;;; UI
-
-;; Disable useless UI elements
 (push '(menu-bar-lines . 0) default-frame-alist)
 (push '(tool-bar-lines . 0) default-frame-alist)
 (push '(vertical-scroll-bars) default-frame-alist)
@@ -64,34 +62,12 @@
       tooltip-mode nil ; Disable tooltips
       set-fringe-mode 10) ; Give us some margins
 
-(defalias 'yes-or-no-p 'y-or-n-p) ; One letter answers
-
-;; Fonts
 (set-face-attribute 'default nil :font "Iosevka" :height 160)
 (set-face-attribute 'fixed-pitch nil :font "Iosevka" :height 160)
 (set-face-attribute 'variable-pitch nil :font "San Francisco Text" :weight 'regular :height 160)
 (set-face-attribute 'mode-line nil :family "Iosevka" :height 0.8)
 (set-face-attribute 'mode-line-inactive nil :family "Iosevka" :height 0.8)
 
-;; Whitespace mode
-(use-package whitespace
-  :init
-  (setf
-   whitespace-style
-   '(face
-     tabs
-     space-before-tab
-     spaces
-     trailing
-     identation
-     space-mark
-     tab-mark
-     missing-newline-at-eof))
-  :hook
-  (prog-mode . (lambda ()
-                 (whitespace-mode 1))))
-
-;; EXWM - Only on Linux
 (when (eq window-system 'x)
   (defun yum/exwm-update-class ()
     (exwm-workspace-rename-buffer exwm-class-name))
@@ -155,14 +131,12 @@
                       (number-sequence 0 9))))
     (exwm-enable)))
 
-;; Zoom mode
 (use-package zoom
   :custom
   (zoom-ignored-major-modes '(vterm-mode))
   :config
   (zoom-mode 1))
 
-;; Theme
 (use-package doom-themes
   :config
   (setf doom-themes-enable-bold t
@@ -171,75 +145,21 @@
   (doom-themes-visual-bell-config)
   (doom-themes-org-config))
 
-;; Which key
 (use-package which-key
   :init (which-key-mode)
   :config
   (setf which-key-idle-delay 0.3))
 
-;; Rainbow delemiters
-(use-package rainbow-delimiters
-  :hook (prog-mode . rainbow-delimiters-mode))
-
-;; Line numbers
-(add-hook! prog-mode-hook display-line-numbers-mode)
-
-;; Scroll margin
-(setf scroll-margin 4
-      scroll-conservatively 100)
-
-;; Fill column indicator
-(add-hook! prog-mode-hook display-fill-column-indicator-mode)
-
-;; Fancy icons in dired
 (use-package all-the-icons-dired
   :hook (dired-mode . all-the-icons-dired-mode))
 
-;; Highlight TODOs & stuff
 (use-package hl-todo
   :hook (prog-mode . hl-todo-mode))
 
-;;; Packages
+(add-hook 'prog-mode-hook 'display-fill-column-indicator-mode)
 
-;; Evil
-(use-package general
-  :config
-  (general-override-mode)
-  (general-create-definer
-    yum/leader-keys
-    :states '(normal
-              insert
-              visual
-              emacs)
-
-    :prefix "SPC"
-    :global-prefix "C-SPC"))
-
-(use-package evil
-  :init
-  (setf evil-want-keybinding nil
-        evil-want-C-u-scroll t
-        evil-want-C-w-in-emacs-state t
-        evil-undo-system 'undo-redo)
-  :config
-  (evil-mode 1))
-
-(use-package evil-surround
-  :config
-  (global-evil-surround-mode 1))
-
-(use-package evil-collection
-  :after evil
-  :config (evil-collection-init))
-
-(general-define-key
- :states 'insert
- "C-g" 'evil-normal-state)
-
-;; Helpful
 (use-package helpful)
 
-;; Doom Modeline
 (use-package doom-modeline
   :init (doom-modeline-mode 1)
   :config
@@ -254,12 +174,6 @@
 
 
   (setf doom-modeline-buffer-encoding nil))
-
-;; Magit
-(use-package magit
-  :config
-  (setf transient-values '((magit-commit "--signoff" "--allow-empty"))
-        magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
 
 ;; Vertico
 (use-package vertico
@@ -282,13 +196,6 @@
   :init
   (marginalia-mode))
 
-(use-package projectile
-  :config (projectile-mode)
-  :init
-  (when (file-directory-p "~/repo")
-    (setq projectile-project-search-path '("~/repo")))
-  (setq projectile-switch-project-action #'projectile-dired))
-
 (use-package emacs
   :init
   ;; Add prompt indicator to `completing-read-multiple'.
@@ -310,11 +217,105 @@
   ;; Enable recursive minibuffers
   (setq enable-recursive-minibuffers t))
 
-;; Org
+(setq-default indent-tabs-mode nil
+              require-final-newline t)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+(use-package whitespace
+  :init
+  (setf
+   whitespace-style
+   '(face
+     tabs
+     space-before-tab
+     spaces
+     trailing
+     identation
+     space-mark
+     tab-mark
+     missing-newline-at-eof))
+  :hook
+  (prog-mode . (lambda ()
+                 (whitespace-mode 1))))
+
+(global-auto-revert-mode 1)
+
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))
+
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
+
+(setf scroll-margin 4
+      scroll-conservatively 100)
+
+(use-package evil
+  :init
+  (setf evil-want-keybinding nil
+        evil-want-C-u-scroll t
+        evil-want-C-w-in-emacs-state t
+        evil-undo-system 'undo-redo)
+  :config
+  (evil-mode 1))
+
+(use-package evil-surround
+  :config
+  (global-evil-surround-mode 1))
+
+(use-package evil-collection
+  :after evil
+  :config (evil-collection-init))
+
+(general-define-key
+ :states 'insert
+ "C-g" 'evil-normal-state)
+
+(use-package magit
+  :config
+  (setf transient-values '((magit-commit "--signoff" "--allow-empty"))
+        magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
+
+  (magit-auto-revert-mode 1))
+
+(use-package flycheck
+  :config
+  (global-flycheck-mode))
+
+(use-package projectile
+  :config (projectile-mode)
+  :init
+  (when (file-directory-p "~/repo")
+    (setq projectile-project-search-path '("~/repo")))
+  (setq projectile-switch-project-action #'projectile-dired))
+
+(with-eval-after-load 'org
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((emacs-lisp . t)
+     (python . t)))
+
+  (push '("conf-unix" . conf-unix) org-src-lang-modes))
+
+(with-eval-after-load 'org
+  (require 'org-tempo)
+
+  (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp")))
+
+;; Automatically tangle our Emacs.org config file when we save it
+(defun yum/org-babel-tangle-config ()
+  (when (string-equal (file-name-directory (buffer-file-name))
+                      (expand-file-name user-emacs-directory))
+    ;; Dynamic scoping to the rescue
+    (let ((org-confirm-babel-evaluate nil))
+      (org-babel-tangle))))
+
+(add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'yum/org-babel-tangle-config)))
+
 (defun yum/org-setup ()
   (setf line-spacing 0.1
         left-margin-width 2
-        right-margin-width 2)
+        right-margin-width 2
+
+        org-agenda-files '("~/org-files/tasks.org"))
 
   (variable-pitch-mode 1)
   (org-indent-mode 1))
@@ -330,7 +331,8 @@
         org-hide-emphasis-markers nil
         org-pretty-entities t
         org-fontify-quote-and-verse-blocks t
-        org-agenda-start-with-log-mode t)
+        org-agenda-start-with-log-mode t
+        org-confirm-babel-evaluate nil)
 
   (dolist (face '((org-level-1 . 1.2)
                   (org-level-2 . 1.1)
@@ -385,11 +387,9 @@
   (require 'evil-org-agenda)
   (evil-org-agenda-set-keys))
 
-;; Direnv
 (use-package direnv
   :config (direnv-mode))
 
-;; Vterm
 (use-package vterm
   :straight
   `(
@@ -425,35 +425,12 @@
             "<f1>" 'vterm-toggle
             "C-<f1>" 'vterm-toggle-cd))
 
-;;; Editing
-
 (use-package parinfer-rust-mode
   :hook emacs-lisp-mode
   :init
   (setq parinfer-rust-autodownload t
         parinfer-rust-library-directory (expand-file-name ".parinfer-rust/" user-emacs-directory)))
 
-(setq-default indent-tabs-mode nil
-              require-final-newline t)
-(add-hook! before-save-hook delete-trailing-whitespace)
-
-(use-package flycheck
-  :config
-  (global-flycheck-mode))
-
-;; Docker stuff
-(use-package docker-tramp)
-(use-package docker)
-(use-package dockerfile-mode)
-
-;;; Languages support
-
-;; Meson
-
-(use-package meson-mode
-  :defer t)
-
-;; Bitbake
 (use-package bitbake
   :defer t
   :mode (("\\.bb\\'" . bitbake-mode)
@@ -465,7 +442,10 @@
   :config
   (setf default-tab-width 8))
 
-;; Markdown
+(use-package docker-tramp)
+(use-package docker)
+(use-package dockerfile-mode)
+
 (use-package markdown-mode
   :commands (markdown-mode gfm-mode)
   :mode (("README\\.md\\'" . gfm-mode)
@@ -473,11 +453,11 @@
          ("\\.markdown\\'" . markdown-mode))
   :init (setf markdown-command "multimarkdown"))
 
-;; Systemd
-(use-package systemd
+(use-package meson-mode
   :defer t)
 
-;;; Global keybindings
+(use-package systemd
+  :defer t)
 
 (yum/leader-keys
   :keymaps 'override
@@ -511,10 +491,7 @@
   "w" '(evil-window-map :which-key "windows")
   "p" '(projectile-command-map :which-key "projects"))
 
-;; Reset the gc threshold to some reasonable value
 (setf gc-cons-threshold (* 16 1024 1024)) ;; 16 MB
 
-;; Load custom stuff
 (when (file-directory-p custom-file)
   (load custom-file))
-;;; init.el ends here
