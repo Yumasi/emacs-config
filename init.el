@@ -12,6 +12,7 @@
 (require 'ym-evil)
 (require 'ym-magit)
 (require 'ym-project)
+(require 'ym-vertico)
 (require 'ym-which-key)
 
 (require 'ym-ui)
