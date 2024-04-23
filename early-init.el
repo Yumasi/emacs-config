@@ -3,7 +3,8 @@
 (setq gc-cons-threshold most-positive-fixnum)
 
 (setq native-comp-async-report-warnings-errors nil
-      load-prefer-newer noninteractive)
+      load-prefer-newer noninteractive
+      warning-minimum-level :error)
 
 (setq package-enable-at-startup nil
       mode-line-format nil
