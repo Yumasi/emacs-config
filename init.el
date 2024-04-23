@@ -10,8 +10,8 @@
 
 ;; Packages setup
 (require 'ym-evil)
-(require 'ym-which-key)
 (require 'ym-magit)
+(require 'ym-which-key)
 
 (require 'ym-ui)
 
