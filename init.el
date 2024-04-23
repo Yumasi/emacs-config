@@ -11,6 +11,7 @@
 ;; Packages setup
 (require 'ym-evil)
 (require 'ym-magit)
+(require 'ym-project)
 (require 'ym-which-key)
 
 (require 'ym-ui)
