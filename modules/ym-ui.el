@@ -8,10 +8,11 @@
     (nano-modeline-text-mode)))
 
 (use-package nano-modeline
-  :hook (((prog-mode text-mode) . ym-disable-modeline)
+  :hook (((prog-mode text-mode magit-mode) . ym-disable-modeline)
+         (magit-mode . nano-modeline-text-mode)
+         (org-mode . nano-modeline-org-mode)
          (prog-mode . nano-modeline-prog-mode)
          (text-mode . nano-modeline-text-mode)
-         (org-mode . nano-modeline-org-mode)
          (after-init . ym-after-init-scratch))
   :config
   (nano-modeline-prog-mode t))
