@@ -1,5 +1,6 @@
+(require 'project)
+
 (ym/leader-def 'normal
-  "p f" 'project-find-file
-  "p p" 'project-switch-project)
+  "p" (general-key "C-x p")) ; Rebind project.el to <leader> p
 
 (provide 'ym-project)
