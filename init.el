@@ -15,6 +15,8 @@
 (require 'ym-vertico)
 (require 'ym-which-key)
 
+(require 'ym-completion)
+(require 'ym-lsp)
 (require 'ym-ui)
 
 (setq gc-cons-threshold (* 16 1024 1024)) ;; 16 MB
