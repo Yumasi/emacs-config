@@ -9,7 +9,8 @@
   :general-config
   (ym/leader-def 'normal
     "f s" 'save-buffer
-    "w" 'evil-window-map))
+    "w" 'evil-window-map
+    "h" 'help-command))
 
 (use-package evil-collection
   :after evil
