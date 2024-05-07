@@ -8,7 +8,8 @@
   (evil-mode 1)
   :general-config
   (ym/leader-def 'normal
-    "f s" 'save-buffer))
+    "f s" 'save-buffer
+    "w" 'evil-window-map))
 
 (use-package evil-collection
   :after evil
