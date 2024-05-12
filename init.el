@@ -15,6 +15,8 @@
 (require 'ym-vertico)
 (require 'ym-which-key)
 
+(require 'ym-treesitter)
+
 (require 'ym-completion)
 (require 'ym-lsp)
 (require 'ym-ui)
