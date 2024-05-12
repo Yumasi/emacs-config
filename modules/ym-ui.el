@@ -15,4 +15,11 @@
       modus-themes-variable-pitch-ui t)
 (load-theme 'modus-vivendi)
 
+;; Setup fonts
+(set-face-attribute 'default nil :font "Iosevka" :height 160)
+(set-face-attribute 'fixed-pitch nil :font "Iosevka" :height 160)
+(set-face-attribute 'variable-pitch nil :font "Futura" :weight 'regular :height 160)
+(set-face-attribute 'mode-line nil :family "Iosevka" :height 0.8)
+(set-face-attribute 'mode-line-inactive nil :family "Iosevka" :height 0.8)
+
 (provide 'ym-ui)
