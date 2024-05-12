@@ -22,4 +22,20 @@
 (set-face-attribute 'mode-line nil :family "Iosevka" :height 0.8)
 (set-face-attribute 'mode-line-inactive nil :family "Iosevka" :height 0.8)
 
+;; Setup Whitespace mode
+(setq
+ whitespace-style
+ '(face
+   tabs
+   space-before-tab
+   trailing
+   indentation
+   tab-mark
+   missing-newline-at-eof))
+
+(defun ym-enable-whitespace-mode ()
+  (whitespace-mode 1))
+
+(add-hook 'prog-mode-hook #'ym-enable-whitespace-mode)
+
 (provide 'ym-ui)
