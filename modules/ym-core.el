@@ -28,7 +28,8 @@
 
 (setq user-full-name "Guillaume Pagnoux"
       custom-file (expand-file-name "custom.el" user-emacs-directory)
-      enable-remote-dir-locals t)
+      enable-remote-dir-locals t
+      column-number-mode t)
 
 (global-auto-revert-mode 1)
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
