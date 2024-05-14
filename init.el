@@ -6,6 +6,7 @@
 (require 'ym-elpaca)
 
 (require 'ym-core)
+(require 'ym-ui)
 (require 'ym-general) ; Make general.el available early
 
 ;; Packages setup
@@ -19,6 +20,5 @@
 
 (require 'ym-completion)
 (require 'ym-lsp)
-(require 'ym-ui)
 
 (setq gc-cons-threshold (* 16 1024 1024)) ;; 16 MB

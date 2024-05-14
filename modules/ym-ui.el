@@ -38,4 +38,9 @@
 
 (add-hook 'prog-mode-hook #'ym-enable-whitespace-mode)
 
+(use-package diminish
+  :config
+  (diminish 'whitespace-mode)
+  (diminish 'eldoc-mode))
+
 (provide 'ym-ui)
