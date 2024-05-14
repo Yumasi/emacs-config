@@ -12,7 +12,8 @@
       modus-themes-subtle-line-numbers t
       modus-themes-paren-match '(intense bold)
       modus-themes-region '(accented)
-      modus-themes-variable-pitch-ui t)
+      modus-themes-variable-pitch-ui t
+      modus-themes-tabs-accented t)
 (load-theme 'modus-vivendi)
 
 ;; Setup fonts
