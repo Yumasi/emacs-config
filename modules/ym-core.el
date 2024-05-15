@@ -24,7 +24,8 @@
       tooltip-mode nil
       set-fringe-mode 10
       scroll-margin 4
-      scroll-conservatively 100)
+      scroll-conservatively 100
+      ring-bell-function #'ignore)
 
 (setq user-full-name "Guillaume Pagnoux"
       custom-file (expand-file-name "custom.el" user-emacs-directory)
