@@ -8,6 +8,7 @@
   (evil-mode 1)
   :general-config
   (ym/leader-def 'normal
+    "SPC" 'execute-extended-command
     "f s" 'save-buffer
     "w" 'evil-window-map
     "h" 'help-command))
