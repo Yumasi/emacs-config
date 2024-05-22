@@ -34,6 +34,7 @@
 
 (global-auto-revert-mode 1)
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+(add-hook 'prog-mode-hook 'electric-pair-mode)
 
 (when (file-directory-p custom-file)
   (load custom-file))
