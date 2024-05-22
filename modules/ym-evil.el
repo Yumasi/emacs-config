@@ -7,7 +7,9 @@
   :config
   (evil-mode 1)
   :general-config
-  (ym/leader-def 'normal
+  (ym/leader-def
+    :states 'normal
+    :keymaps 'override
     "SPC" 'execute-extended-command
     "f s" 'save-buffer
     "w" 'evil-window-map
