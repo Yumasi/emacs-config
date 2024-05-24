@@ -19,6 +19,7 @@
 (require 'ym-treesitter)
 
 (require 'ym-completion)
+(require 'ym-langs)
 (require 'ym-lsp)
 
 (setq gc-cons-threshold (* 16 1024 1024)) ;; 16 MB
