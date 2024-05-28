@@ -22,4 +22,7 @@
 (require 'ym-langs)
 (require 'ym-lsp)
 
+;; Configure tramp
+(require 'ym-tramp)
+
 (setq gc-cons-threshold (* 16 1024 1024)) ;; 16 MB
