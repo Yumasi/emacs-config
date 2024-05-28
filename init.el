@@ -1,7 +1,7 @@
 ;; *- lexical-binding: t; -*-
 
 ;; Add configuration modules to load path
-(add-to-list 'load-path '"~/.config/emacs/modules")
+(add-to-list 'load-path (concat (file-name-as-directory user-emacs-directory) "modules"))
 
 (require 'ym-elpaca)
 
