@@ -6,6 +6,8 @@
 (use-package corfu
   :init
   (global-corfu-mode)
+  :bind
+  (:map corfu-map ("C-SPC" . corfu-insert-separator))
   :custom
   (corfu-auto t))
 
