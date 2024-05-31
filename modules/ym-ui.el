@@ -44,4 +44,8 @@
   :config
   (diminish 'eldoc-mode))
 
+(use-package marginalia
+  :init
+  (marginalia-mode))
+
 (provide 'ym-ui)
