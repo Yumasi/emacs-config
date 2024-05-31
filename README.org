@@ -1,1 +1,14 @@
 #+TITLE: README
+
+* Installation
+
+#+begin_src sh
+  git clone git@github.com:Yumasi/emacs-config.git ~/.config/emacs
+#+end_src
+
+Start Emacs and Elpaca will take care of installing the packages.
+
+** Prerequisites
+
+- Emacs 29.1
+- [[https://github.com/be5invis/Iosevka][Iosevka Font]]
