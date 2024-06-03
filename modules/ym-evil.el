@@ -16,7 +16,8 @@
     :keymaps 'override
     "f s" 'save-buffer
     "w" 'evil-window-map
-    "h" 'help-command))
+    "h" 'help-command
+    "b k" 'kill-this-buffer))
 
 (use-package evil-collection
   :after evil
