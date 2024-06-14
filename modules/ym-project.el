@@ -4,6 +4,10 @@
 (add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
 (setq compilation-scroll-output t)
 
+;; Search programs
+(setq xref-search-program 'ripgrep
+      find-program "fd")
+
 (setq project-switch-commands
       '((project-find-file "Find file")
         (project-find-regexp "Find regexp")
