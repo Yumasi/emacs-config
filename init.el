@@ -21,6 +21,7 @@
 (require 'ym-completion)
 (require 'ym-langs)
 (require 'ym-lsp)
+(require 'ym-dap)
 
 ;; Configure tramp
 (require 'ym-tramp)
