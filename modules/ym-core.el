@@ -32,6 +32,8 @@
       enable-remote-dir-locals t
       column-number-mode t)
 
+(setq ediff-window-setup-function #'ediff-setup-windows-plain)
+
 (global-auto-revert-mode 1)
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 (add-hook 'prog-mode-hook 'electric-pair-mode)
