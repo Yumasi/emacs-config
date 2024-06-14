@@ -1,5 +1,9 @@
 (require 'project)
 
+;; Configure compilation mode
+(add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
+(setq compilation-scroll-output t)
+
 (ym/leader-def
   :states 'normal
   :keymaps 'override
