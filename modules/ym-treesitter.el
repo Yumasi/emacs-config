@@ -1,11 +1,10 @@
 (use-package tree-sitter-langs
+  :demand t
+  :diminish 'tree-sitter-mode
   :config
-  (tree-sitter-langs-install-latest-grammar t))
-
-(setq major-mode-remap-alist '((c-mode . c-ts-mode)
-                               (c++-mode . c++-ts-mode)
-                               (go-mode . go-ts-mode)
-                               (python-mode . python-ts-mode)))
+  (tree-sitter-langs-install-latest-grammar t)
+  (global-tree-sitter-mode)
+  :hook (tree-sitter-after-on . tree-sitter-hl-mode))
 
 (customize-set-variable 'treesit-font-lock-level 4)
 
