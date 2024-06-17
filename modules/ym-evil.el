@@ -17,7 +17,8 @@
     "f s" 'save-buffer
     "w" 'evil-window-map
     "h" 'help-command
-    "b k" 'kill-this-buffer))
+    "b k" 'kill-this-buffer
+    "b b" 'switch-to-buffer))
 
 (use-package evil-collection
   :after evil
