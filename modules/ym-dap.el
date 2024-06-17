@@ -1,6 +1,11 @@
 (use-package jsonrpc)
 (use-package dape
   :config
+  (ym/leader-def
+    :states 'normal
+    :keymaps 'override
+    "d" (general-key "C-x C-a"))
+
   (dape-breakpoint-global-mode)
   (add-hook 'dape-compile-compile-hooks 'kill-buffer)
   (add-hook 'dape-on-start-hooks (lambda () (save-some-buffers t t)))
