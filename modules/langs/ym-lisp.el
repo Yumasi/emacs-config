@@ -1,5 +1,6 @@
 (use-package lispy
   :hook ((emacs-lisp-mode scheme-mode) . lispy-mode)
+  :diminish 'lispy-mode
   :config
   (setq lispy-safe-delete t
         lispy-safe-copy t
@@ -8,6 +9,7 @@
 
 (use-package lispyville
   :hook (lispy-mode . lispyville-mode)
+  :diminish 'lispyville-mode
   :config
   (lispyville-set-key-theme '(operators
                               c-w
