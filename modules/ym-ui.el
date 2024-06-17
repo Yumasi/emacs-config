@@ -48,4 +48,7 @@
   :init
   (marginalia-mode))
 
+(use-package eldoc-box
+  :hook ((eglot-managed-mode lisp-mode lisp-data-mode) . eldoc-box-hover-at-point-mode))
+
 (provide 'ym-ui)
