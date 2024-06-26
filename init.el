@@ -16,6 +16,7 @@
 (require 'ym-vertico)
 (require 'ym-which-key)
 
+(require 'ym-editorconfig)
 (require 'ym-treesitter)
 
 (require 'ym-completion)
