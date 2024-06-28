@@ -39,4 +39,13 @@
   :hook ((eglot-managed-mode lisp-mode lisp-data-mode) . eldoc-box-hover-at-point-mode)
   :diminish 'eldoc-box-hover-at-point-mode)
 
+(use-package doom-modeline
+  :hook (after-init . doom-modeline-mode)
+  :custom
+  (display-time-mode t)
+  (doom-modeline-height 26)
+  (doom-modeline-indent-info t)
+  (doom-modeline-time t)
+  (doom-modeline-env-enable-go nil))
+
 (provide 'ym-ui)
