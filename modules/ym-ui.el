@@ -4,11 +4,11 @@
   (load-theme 'gruvbox-dark-hard))
 
 ;; Setup fonts
-(set-face-attribute 'default nil :font "Iosevka" :height 160)
-(set-face-attribute 'fixed-pitch nil :font "Iosevka" :height 160)
-(set-face-attribute 'variable-pitch nil :font "Futura" :weight 'regular :height 160)
-(set-face-attribute 'mode-line nil :family "Iosevka" :height 0.8)
-(set-face-attribute 'mode-line-inactive nil :family "Iosevka" :height 0.8)
+(set-face-attribute 'default nil :font "Iosevka" :height 155)
+(set-face-attribute 'fixed-pitch nil :font "Iosevka" :height 1.0)
+(set-face-attribute 'variable-pitch nil :font "Futura" :weight 'regular :height 1.0)
+(set-face-attribute 'mode-line nil :family "Iosevka" :height 0.9)
+(set-face-attribute 'mode-line-inactive nil :family "Iosevka" :height 0.9)
 
 ;; Setup Whitespace mode
 (setq
