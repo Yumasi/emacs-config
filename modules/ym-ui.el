@@ -1,7 +1,7 @@
 ;; Setup theme
 (use-package gruvbox-theme
   :config
-  (load-theme 'gruvbox-dark-hard))
+  (load-theme 'gruvbox-dark-hard t))
 
 ;; Setup fonts
 (set-face-attribute 'default nil :font "Iosevka" :height 155)
