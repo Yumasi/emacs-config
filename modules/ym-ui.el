@@ -1,7 +1,9 @@
 ;; Setup theme
-(use-package gruvbox-theme
+(use-package doom-themes
   :config
-  (load-theme 'gruvbox-dark-hard t))
+  (load-theme 'doom-moonlight t)
+  (doom-themes-visual-bell-config)
+  (doom-themes-org-config))
 
 ;; Setup fonts
 (set-face-attribute 'default nil :font "Iosevka" :height 155)
