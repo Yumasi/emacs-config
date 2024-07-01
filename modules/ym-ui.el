@@ -23,6 +23,8 @@
    tab-mark
    missing-newline-at-eof))
 
+(global-hl-line-mode)
+
 (defun ym-enable-whitespace-mode ()
   (whitespace-mode 1)
   (diminish 'whitespace-mode))
