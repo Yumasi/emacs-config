@@ -10,6 +10,7 @@
 (require 'ym-general) ; Make general.el available early
 
 ;; Packages setup
+(require 'ym-direnv)
 (require 'ym-evil)
 (require 'ym-magit)
 (require 'ym-project)
