@@ -35,6 +35,7 @@
   :config
   (diminish 'eldoc-mode))
 
+(use-package compat)
 (use-package marginalia
   :init
   (marginalia-mode))
