@@ -5,9 +5,24 @@
                  "Completion style which provides TAB completion only."))
   :custom
   (completion-styles '(tab orderless basic))
-  ;; (completion-category-overrides '((file (styles basic partial-completion))
-  ;;                                  (eglot (styles . (orderless flex)))))
-  )
+  (completion-category-overrides '((eglot (styles orderless))
+                                   (eglot-capf (styles orderless)))))
+
+(use-package cape
+  :init
+  (add-hook 'completion-at-point-functions #'cape-file)
+  (add-hook 'completion-at-point-functions #'capf-dabbrev)
+  :config
+  (defun ym/eglot-capf ()
+    (setq-local completion-at-point-functions
+                (list (cape-capf-super
+                       #'eglot-completion-at-point
+                       #'capf-dabbrev
+                       #'cape-file))))
+
+  (advice-add 'eglot-completion-at-point :around #'cape-wrap-buster)
+  :hook
+  (eglot-managed-mode . ym/eglot-capf))
 
 (use-package corfu
   :init
@@ -23,6 +38,8 @@
         ([backtab] . corfu-previous))
   :custom
   (corfu-auto t)
+  (corfu-auto-delay 1)
+  (corfu-auto-prefix 2)
   (corfu-cycle t)
   (corfu-preselect 'prompt)
   (corfu-popupinfo-delay '(1.0 . 1.0))
