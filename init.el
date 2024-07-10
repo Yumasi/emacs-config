@@ -17,6 +17,7 @@
 (require 'ym-vertico)
 (require 'ym-which-key)
 (require 'ym-ibuffer)
+(require 'ym-yas)
 
 (require 'ym-editorconfig)
 (require 'ym-treesitter)
