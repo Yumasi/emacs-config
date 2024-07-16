@@ -7,9 +7,9 @@
 
 (require 'ym-core)
 (require 'ym-ui)
-(require 'ym-general) ; Make general.el available early
 
 ;; Packages setup
+(require 'ym-general) ; Make general.el available early
 (require 'ym-direnv)
 (require 'ym-evil)
 (require 'ym-magit)
