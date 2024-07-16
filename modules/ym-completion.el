@@ -11,13 +11,13 @@
 (use-package cape
   :init
   (add-hook 'completion-at-point-functions #'cape-file)
-  (add-hook 'completion-at-point-functions #'capf-dabbrev)
+  (add-hook 'completion-at-point-functions #'cape-dabbrev)
   :config
   (defun ym/eglot-capf ()
     (setq-local completion-at-point-functions
                 (list (cape-capf-super
                        #'eglot-completion-at-point
-                       #'capf-dabbrev
+                       #'cape-dabbrev
                        #'cape-file))))
 
   (advice-add 'eglot-completion-at-point :around #'cape-wrap-buster)
