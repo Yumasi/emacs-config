@@ -2,6 +2,7 @@
 
 (require 'ym-guile)
 (require 'ym-markdown)
+(require 'ym-protobuf)
 (require 'ym-zig)
 
 (provide 'ym-langs)
