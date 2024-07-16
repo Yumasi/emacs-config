@@ -8,9 +8,10 @@ Formats the buffer if eglot is managing it."
     (eglot-format-buffer)))
 
 
-(general-add-hook '(c-mode-hook
-                    go-mode-hook
-                    python-mode-hook)
+(general-add-hook '(c-ts-mode-hook
+                    go-ts-mode-hook
+                    python-ts-mode-hook
+                    zig-mode-hook)
                   'eglot-ensure)
 
 (add-hook 'before-save-hook #'ym-eglot-format-on-save)
