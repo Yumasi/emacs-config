@@ -1,10 +1,20 @@
-(use-package tree-sitter-langs
-  :demand t
-  :diminish 'tree-sitter-mode
+(use-package treesit-auto
+  :custom
+  (treesit-auto-install 'prompt)
   :config
-  (tree-sitter-langs-install-latest-grammar t)
-  (global-tree-sitter-mode)
-  :hook (tree-sitter-after-on . tree-sitter-hl-mode))
+  (setq my-go-tsauto-config
+        (make-treesit-auto-recipe
+         :lang 'go
+         :ts-mode 'go-ts-mode
+         :remap '(go-mode)
+         :url "https://github.com/tree-sitter/tree-sitter-go"
+         :revision "v0.19.0"
+         :source-dir "src"
+         :ext "\\.go\\'"))
+
+  (add-to-list 'treesit-auto-recipe-list my-go-tsauto-config)
+  (treesit-auto-add-to-auto-mode-alist 'all)
+  (global-treesit-auto-mode))
 
 (customize-set-variable 'treesit-font-lock-level 4)
 
