@@ -15,5 +15,6 @@ Formats the buffer if eglot is managing it."
                   'eglot-ensure)
 
 (add-hook 'before-save-hook #'ym-eglot-format-on-save)
+(add-to-list 'eglot-ignored-server-capabilities ':inlayHintProvider)
 
 (provide 'ym-lsp)
